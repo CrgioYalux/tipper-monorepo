@@ -1,0 +1,38 @@
+/*
+CREATE TABLE CLIENT(
+	pk_client_id SERIAL PRIMARY KEY,
+	nickname VARCHAR(26) UNIQUE NOT NULL,
+	firstname VARCHAR(26) NOT NULL,
+	lastname VARCHAR(26) NOT NULL,
+	email VARCHAR(40) NOT NULL,
+	pass VARCHAR(40) NOT NULL,
+	created TIMESTAMP NOT NULL
+);
+
+CREATE TABLE TIP(
+	pk_tip_id SERIAL PRIMARY KEY,
+	fk_client_id INTEGER NOT NULL,
+	body VARCHAR(240) NOT NULL,
+	created TIMESTAMP NOT NULL,
+	FOREIGN KEY (fk_client_id) REFERENCES CLIENT (pk_client_id)
+);
+
+CREATE TABLE TIP_REACTION(
+	pk_tip_reaction_id SERIAL PRIMARY KEY,
+	fk_tip_id INTEGER NOT NULL,
+	times_liked INTEGER,
+	times_disliked INTEGER,
+	FOREIGN KEY (fk_tip_id) REFERENCES TIP (pk_tip_id)
+);
+
+CREATE TABLE TIP_COMMENT(
+	pk_tip_comment_id SERIAL PRIMARY KEY,
+	fk_tip_id INTEGER NOT NULL,
+	fk_client_id INTEGER NOT NULL,
+	body VARCHAR(240) NOT NULL,
+	FOREIGN KEY (fk_tip_id) REFERENCES TIP (pk_tip_id),
+	FOREIGN KEY (fk_client_id) REFERENCES CLIENT (pk_client_id)
+);
+
+*/
+-- DROP TABLE IF EXISTS table_name;

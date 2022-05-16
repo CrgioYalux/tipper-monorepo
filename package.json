@@ -1,0 +1,23 @@
+{
+  "name": "tipper",
+  "version": "1.0.0",
+  "engines": {
+    "npm": "8.x",
+    "node": "16.x"
+  },
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+  	"dev:client": "npm run start --workspace=client",
+		"dev:server": "npm run dev --workspace=server",
+		"build:client": "npm run build --workspace=client",
+		"start": "npm run build:client && npm run start --workspace=server",
+		"dev": "npm run build:client && npm run dev:server",
+		"deploy": "git add . && git commit -m Heroku && git push heroku master",
+		"heroku-postbuild": "npm run build:client"
+  },
+  "author": "Azul",
+  "license": "MIT"
+}
