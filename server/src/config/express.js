@@ -1,7 +1,8 @@
 const cors = require('cors');
 const express = require('express');
 const path = require('path');
-const { router } = require('../router/router.js');
+const { router } = require('../api/router.js');
+const { errorHandler } = require('../middleware/errorHandler.js');
 
 const createServer = () => {
   const app = express();
@@ -19,6 +20,8 @@ const createServer = () => {
   app.use('/', express.static(
     path.join(__dirname, '..', '..', '..', 'client', 'dist')
   ));
+
+  app.use(errorHandler);
 
   return app;
 };

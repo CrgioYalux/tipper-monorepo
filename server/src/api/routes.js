@@ -1,25 +1,25 @@
 const BASE_API_TIP = "/api/tip";
-const BASE_API_USER = "/api/user";
+const BASE_API_CLIENT = "/api/client";
 
 const TIP_ROUTES = {
-  GET_ALL : `${BASE_API_TIP}/get/all`,
+  GET_ALL : `${BASE_API_TIP}/get/all/:client_id`,
   GET_ONE : `${BASE_API_TIP}/get/:id`,
   CREATE : `${BASE_API_TIP}/post`,
   UPDATE : `${BASE_API_TIP}/put`,
   DELETE: `${BASE_API_TIP}/delete/:id`
 };
 
-const USER_ROUTES = {
-  GET_ALL : `${BASE_API_USER}/get/all`,
-  GET_ONE : `${BASE_API_USER}/get/:id`,
-  CREATE : `${BASE_API_USER}/post`,
-  UPDATE : `${BASE_API_USER}/put/:id`,
-  DELETE : `${BASE_API_USER}/delete/:user`
+const CLIENT_ROUTES = {
+  GET_ALL : `${BASE_API_CLIENT}/get/all`,
+  GET_ONE : `${BASE_API_CLIENT}/get/:id`,
+  CREATE : `${BASE_API_CLIENT}/post`,
+  UPDATE : `${BASE_API_CLIENT}/put/:id`,
+  DELETE : `${BASE_API_CLIENT}/delete/:id`
 };
 
 module.exports = {
   BASE_API_TIP,
-  BASE_API_USER,
+  BASE_API_CLIENT,
   TIP_ROUTES,
-  USER_ROUTES 
+  CLIENT_ROUTES 
 };
