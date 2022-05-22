@@ -1,11 +1,11 @@
-/*
 CREATE TABLE CLIENT(
 	pk_client_id SERIAL PRIMARY KEY,
 	nickname VARCHAR(26) UNIQUE NOT NULL,
 	firstname VARCHAR(26) NOT NULL,
 	lastname VARCHAR(26) NOT NULL,
 	email VARCHAR(40) NOT NULL,
-	pass VARCHAR(40) NOT NULL,
+	hash VARCHAR(128) NOT NULL,
+  salt VARCHAR(8) NOT NULL,
 	created TIMESTAMP NOT NULL
 );
 
@@ -33,6 +33,3 @@ CREATE TABLE TIP_COMMENT(
 	FOREIGN KEY (fk_tip_id) REFERENCES TIP (pk_tip_id),
 	FOREIGN KEY (fk_client_id) REFERENCES CLIENT (pk_client_id)
 );
-
-*/
--- DROP TABLE IF EXISTS table_name;
