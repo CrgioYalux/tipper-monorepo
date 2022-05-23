@@ -1,6 +1,6 @@
 const express = require('express');
-const { pool } = require('../pg/connection.js');
 const router = express.Router();
+const { pool } = require('../pg/connection.js');
 const { TIP_ROUTES, CLIENT_ROUTES } = require('./routes.js');
 const { TIP_QUERIES } = require('../pg/tip/queries.js');
 const { CLIENT_QUERIES } = require('../pg/client/queries.js');
@@ -67,9 +67,12 @@ router.get(TIP_ROUTES.GET_ALL, (req, res, next) => {
 });
 
 router.get(TIP_ROUTES.GET_ONE, (req, res, next) => {
-  const { id } = req.params;
-  if (!id) return res.json({message: "No ID specified"}).status(400).end();
-  pool.query(TIP_QUERIES.GET_ONE(id), (q_err, q_res) => {
+  // to be able to do api/tip/get/:user/:tip_id would be nice
+  // for now i'll use the client_id instead of the user's nickname
+  const { client_id, tip_id } = req.params;
+  if (!checkParams([client_id, tip_id])) 
+    return res.json({message: "There's empty required fields"}).status(400).end();
+  pool.query(TIP_QUERIES.GET_ONE(client_id, tip_id), (q_err, q_res) => {
     if (q_err) return next(q_err);
     const rows = JSON.parse(JSON.stringify(q_res.rows));
     res.json({rows}).status(302).end();

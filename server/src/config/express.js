@@ -18,10 +18,8 @@ const createServer = () => {
   });
 
   app.use('/', express.static(
-    path.join(__dirname, '..', '..', '..', 'client', 'dist')
+    path.join(__dirname, '..', '..', '..', 'client', 'build')
   ));
-
-  app.use(errorHandler);
 
   return app;
 };

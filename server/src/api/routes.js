@@ -3,7 +3,7 @@ const BASE_API_CLIENT = "/api/client";
 
 const TIP_ROUTES = {
   GET_ALL : `${BASE_API_TIP}/get/all/:client_id`,
-  GET_ONE : `${BASE_API_TIP}/get/:id`,
+  GET_ONE : `${BASE_API_TIP}/get/:client_id/:tip_id`,
   CREATE : `${BASE_API_TIP}/post`,
   UPDATE : `${BASE_API_TIP}/put`,
   DELETE: `${BASE_API_TIP}/delete/:id`
