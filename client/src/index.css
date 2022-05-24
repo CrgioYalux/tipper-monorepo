@@ -1,13 +1,89 @@
+/* IMPORTS */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap");
+
+/* RESET */
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  /* VARIABLES */
+
+  /* Fonts */
+  --primary-font: 'Montserrat', sans-serif;
+  --secondary-font: 'Roboto', sans-serif;
+
+  /* Colors */
+  --primary-color: hsl(0, 0%, 0%);
+  --primary-color-light: hsl(0, 0%, 10%);
+  --primary-color-lighter: hsl(0, 0%, 20%);
+  --primary-color-lightest: hsl(0, 0%, 30%);
+
+  --secondary-color: hsl(0, 100%, 100%);
+  --secondary-color-dark: hsl(0, 100%, 90%);
+  --secondary-color-darker: hsl(0, 100%, 80%);
+  --secondary-color-darkest: hsl(0, 100%, 70%);
+
+  --brand-color-hue: 130;
+
+  --brand-color-lightest: hsl(var(--brand-color-hue), 50%, 80%);
+  --brand-color-lighter: hsl(var(--brand-color-hue), 50%, 70%);
+  --brand-color-light: hsl(var(--brand-color-hue), 50%, 60%);
+  --brand-color: hsl(var(--brand-color-hue), 50%, 50%);
+  --brand-color-dark: hsl(var(--brand-color-hue), 50%, 40%);
+  --brand-color-darker: hsl(var(--brand-color-hue), 50%, 30%);
+  --brand-color-darkest: hsl(var(--brand-color-hue), 50%, 20%);
+
+  /* Device widths */
+  --laptop-width: 1440px;
+  --tablet-width: 960px;
+  --mobile-width: 480px;
+  --small-mobile-width: 360px;
 }
+
