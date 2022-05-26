@@ -1,0 +1,89 @@
+.Tip {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 5px;
+
+  width: 100%;
+
+  font-family: var(--primary-font);
+
+  font-size: clamp(.8rem, 4vw, 1.4rem);
+
+  border-radius: 9px;
+
+  box-sizing: border-box;
+  background-color: var(--primary-color-lighter);
+
+  color: var(--secondary-color-darker);
+}
+
+.Tip__Client_info {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 5px 0 0 0;
+}
+
+.Tip__Client_info span { 
+  font-weight: bold;
+  margin-left: 20px;
+}
+
+.Tip__Client_info small {
+  margin-left: 10px;
+  font-size: .7em;
+  opacity: .7;
+  cursor: pointer;
+}
+
+.Tip__Content {
+  width: 95%;
+  align-self: center;
+  overflow-wrap: break-word;
+  word-break: break-all;
+}
+
+.Tip__Interaction {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  width: 95%;
+  height: 100%;
+
+  --Tip__Interaction_spacing: 30px;
+}
+
+.Interaction_like {
+  color: var(--like-color); 
+  margin: 0 0 0 var(--Tip__Interaction_spacing);
+}
+.Interaction_dislike {
+  color: var(--dislike-color); 
+  margin: 0 auto 0 var(--Tip__Interaction_spacing);
+}
+.Interaction_comment {
+  color: var(--comment-color); 
+  margin: 0 var(--Tip__Interaction_spacing) 0 auto;
+}
+
+.Tip__Created {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 0 5px 0;
+
+}
+.Tip__Created small {
+  text-transform: lowercase;
+  margin-left: auto;
+  margin-right: 20px;
+  font-size: .8em;
+}
+
+

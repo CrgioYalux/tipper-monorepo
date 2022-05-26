@@ -65,12 +65,12 @@ table {
   --primary-color-lighter: hsl(0, 0%, 20%);
   --primary-color-lightest: hsl(0, 0%, 30%);
 
-  --secondary-color: hsl(0, 100%, 100%);
-  --secondary-color-dark: hsl(0, 100%, 90%);
-  --secondary-color-darker: hsl(0, 100%, 80%);
-  --secondary-color-darkest: hsl(0, 100%, 70%);
+  --secondary-color: hsl(0, 0%, 100%);
+  --secondary-color-dark: hsl(0, 0%, 90%);
+  --secondary-color-darker: hsl(0, 0%, 80%);
+  --secondary-color-darkest: hsl(0, 0%, 70%);
 
-  --brand-color-hue: 130;
+  --brand-color-hue: 230;
 
   --brand-color-lightest: hsl(var(--brand-color-hue), 50%, 80%);
   --brand-color-lighter: hsl(var(--brand-color-hue), 50%, 70%);
@@ -79,6 +79,10 @@ table {
   --brand-color-dark: hsl(var(--brand-color-hue), 50%, 40%);
   --brand-color-darker: hsl(var(--brand-color-hue), 50%, 30%);
   --brand-color-darkest: hsl(var(--brand-color-hue), 50%, 20%);
+
+  --dislike-color: hsl(0, 50%, 50%);
+  --like-color: hsl(150, 50%, 50%);
+  --comment-color: var(--brand-color);
 
   /* Device widths */
   --laptop-width: 1440px;

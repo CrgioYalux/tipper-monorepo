@@ -1,28 +1,17 @@
-
-body {
-  background-color: var(--primary-color);
-}
+body { background-color: var(--primary-color-light); }
 
 .App {
   min-height: 100vh;
   width: 100%;
   display: grid;
   place-items: center;
-
-  font-size: 4rem;
-  font-family: monospace;
-  color: var(--brand-color-lighter);
-  font-weight: bold;
-
-  background-color: var(--primary-color);
-  outline: 2px solid var(--brand-color-lighter);
-  outline-offset: -10px;
-  border-radius: 32px;
 }
 
-.App > h1 { font-size: 2em; }
-.App > h2 { font-size: 1.5em; }
-.App > h3 { 
-  font-size: 1em;
-  width: 700px;
+.Tips_container {
+  justify-self: end;
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  /* max-width: calc(var(--small-mobile-width) - 40px); */
 }
