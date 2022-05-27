@@ -13,21 +13,23 @@ export const Tip = ({
   return (
     <div className="Tip">
       <div className="Tip__Client_info">
-        <span>{firstname + ' ' + lastname}</span> <small>@{nickname}</small>
+        <span className="Tip__Client_fullname">{firstname + ' ' + lastname}</span>
+        <b>•</b>
+        <small className="Tip__Client_nickname">@{nickname}</small>
+        <small className="Tip__Client_created">{created.toDateString()}</small>
       </div>
       <div className="Tip__Content">
         <p>{body}</p>
       </div>
-        {/*
+{/*
       <div className="Tip__Interaction">
         <span className="Interaction_like">{likes}</span>
         <span className="Interaction_dislike">{dislikes}</span>
         <span className="Interaction_comment">{comments}!</span>
       </div>
-        */}
       <div className="Tip__Created">
-        <small>{created.toDateString()}</small>
       </div>
+*/}
     </div>
   )
 }

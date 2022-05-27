@@ -1,4 +1,4 @@
-body { background-color: var(--primary-color-light); }
+body { background-color: var(--primary-color); }
 
 .App {
   min-height: 100vh;
@@ -9,9 +9,16 @@ body { background-color: var(--primary-color-light); }
 
 .Tips_container {
   justify-self: end;
-  width: 90vw;
+  width: 100vw; /* for mobiles it takes 100vw, cuz the navbar is at the bottom of the page*/
   display: flex;
   flex-direction: column;
   gap: 5px;
   /* max-width: calc(var(--small-mobile-width) - 40px); */
 }
+
+@media screen and (min-width: 1024px) {
+  .Tips_container {
+    width: 80vw;
+  }
+}
+

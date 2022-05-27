@@ -83,11 +83,5 @@ table {
   --dislike-color: hsl(0, 50%, 50%);
   --like-color: hsl(150, 50%, 50%);
   --comment-color: var(--brand-color);
-
-  /* Device widths */
-  --laptop-width: 1440px;
-  --tablet-width: 960px;
-  --mobile-width: 480px;
-  --small-mobile-width: 360px;
 }
 

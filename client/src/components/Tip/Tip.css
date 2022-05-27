@@ -1,3 +1,4 @@
+/* Component Container */
 .Tip {
   display: flex;
   flex-direction: column;
@@ -14,32 +15,54 @@
   border-radius: 9px;
 
   box-sizing: border-box;
-  background-color: var(--primary-color-lighter);
+  background-color: var(--primary-color-light);
 
-  color: var(--secondary-color-darker);
+  color: var(--brand-color-lightest);
+
+  padding: 5px 0;
 }
 
+/* Tip Client Info */
 .Tip__Client_info {
   height: 100%;
   width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 5px 0 0 0;
+  --Tip__Client_info_spacing: 10px;
 }
 
-.Tip__Client_info span { 
+.Tip__Client_info b {
+  margin: 0 5px;
   font-weight: bold;
-  margin-left: 20px;
+  font-size: 1em;
 }
 
-.Tip__Client_info small {
-  margin-left: 10px;
+.Tip__Client_info > small {
   font-size: .7em;
-  opacity: .7;
-  cursor: pointer;
+  opacity: .9;
 }
 
+.Tip__Client_info .Tip__Client_fullname { 
+  font-weight: bold;
+  margin-left: var(--Tip__Client_info_spacing);
+}
+
+.Tip__Client_info .Tip__Client_nickname {
+  cursor: pointer;
+  max-width: 10ch;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.Tip__Client_info .Tip__Client_created {
+  text-transform: lowercase;
+  margin-left: auto;
+  margin-right: var(--Tip__Client_info_spacing);
+}
+
+/* Tip Content */
 .Tip__Content {
   width: 95%;
   align-self: center;
@@ -47,6 +70,18 @@
   word-break: break-all;
 }
 
+/* Tip Created */
+.Tip__Created {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 0 5px 0;
+}
+
+
+/* Tip Interactions */
 .Tip__Interaction {
   display: flex;
   flex-direction: row;
@@ -69,21 +104,3 @@
   color: var(--comment-color); 
   margin: 0 var(--Tip__Interaction_spacing) 0 auto;
 }
-
-.Tip__Created {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 0 0 5px 0;
-
-}
-.Tip__Created small {
-  text-transform: lowercase;
-  margin-left: auto;
-  margin-right: 20px;
-  font-size: .8em;
-}
-
-
