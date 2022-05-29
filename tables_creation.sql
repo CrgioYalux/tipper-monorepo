@@ -1,11 +1,11 @@
+/* Tables Definition */
 CREATE TABLE Client(
 	pk_client_id SERIAL PRIMARY KEY,
-	nickname VARCHAR(26) UNIQUE NOT NULL,
-	firstname VARCHAR(26) NOT NULL,
-	lastname VARCHAR(26) NOT NULL,
-	email VARCHAR(40) NOT NULL,
+	nickname VARCHAR(40) UNIQUE NOT NULL,
+  fullname VARCHAR(40) UNIQUE NOT NULL,
+	email VARCHAR(50) NOT NULL,
 	hash VARCHAR(128) NOT NULL,
-  	salt VARCHAR(32) NOT NULL,
+  salt VARCHAR(32) NOT NULL,
 	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -34,24 +34,14 @@ CREATE TABLE Tip_comment(
 	FOREIGN KEY (fk_client_id) REFERENCES Client (pk_client_id)
 );
 
-INSERT INTO Client
-	(nickname, firstname, lastname, email, hash, salt)
-VALUES
-	('crgi0','sergio','pablo','sergioyalux1@gmail.com','123456789','abcdefghijkl');
-
-INSERT INTO Tip
-	(fk_client_id, body)
-VALUES
-	(1, 'and, yes, you guessed it right, this is another test tip');
-
+/* Functions Definition */
 CREATE OR REPLACE FUNCTION fn_GetTipFromClient (cid INTEGER, tid INTEGER)
 RETURNS TABLE (
 	client_id INTEGER,
 	tip_id INTEGER,
 	body VARCHAR(240),
-	nickname VARCHAR(26),
-	firstname VARCHAR(26),
-	lastname VARCHAR(26),
+  fullname VARCHAR(40),
+	nickname VARCHAR(40),
 	created TIMESTAMP
 )
 LANGUAGE plpgsql
@@ -63,9 +53,8 @@ BEGIN
 			C.pk_client_id AS client_id,
 			T.pk_tip_id AS tip_id,
 			T.body AS body,
+      C.fullname AS fullname,
 			C.nickname AS nickname,
-			C.firstname AS firstname,
-			C.lastname AS lastname,
 			T.created AS created
 		FROM Tip T
 		JOIN Client C 
@@ -77,17 +66,13 @@ BEGIN
 END;
 $$;
 
-SELECT * FROM fn_GetTipFromClient(2, 3);
-DROP FUNCTION fn_GetTipFromClient;
-
 CREATE OR REPLACE FUNCTION fn_GetAllTipsFromClient(cid INTEGER)
 RETURNS TABLE (
 	client_id INTEGER,
 	tip_id INTEGER,
 	body VARCHAR(240),
-	nickname VARCHAR(26),
-	firstname VARCHAR(26),
-	lastname VARCHAR(26),
+  fullname VARCHAR(40),
+	nickname VARCHAR(40),
 	created TIMESTAMP
 )
 LANGUAGE plpgsql
@@ -99,9 +84,8 @@ BEGIN
 			C.pk_client_id AS client_id,
 			T.pk_tip_id AS tip_id,
 			T.body AS body,
+      C.fullname AS fullname,
 			C.nickname AS nickname,
-			C.firstname AS firstname,
-			C.lastname AS lastname,
 			T.created AS created
 		FROM Tip T
 		JOIN Client C
@@ -109,6 +93,3 @@ BEGIN
 		WHERE C.pk_client_id = cid;
 END;
 $$;
-
-SELECT * FROM fn_GetAllTipsFromClient(1);
-DROP FUNCTION fn_GetAllTipsFromClient;

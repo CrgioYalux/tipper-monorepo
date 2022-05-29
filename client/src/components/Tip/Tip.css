@@ -50,7 +50,7 @@
 
 .Tip__Client_info .Tip__Client_nickname {
   cursor: pointer;
-  max-width: 10ch;
+  max-width: 20ch;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;

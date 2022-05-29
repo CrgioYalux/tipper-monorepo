@@ -3,8 +3,7 @@ import { Tip } from '../Tip';
 
 const tip1 = {
   nickname: 'pabl01',
-  firstname: 'Pablo',
-  lastname: 'Pablinsky',
+  fullname: 'Pablo Pablinsky',
   body: 'This is a test tip',
   created: new Date(),
   likes: 10,
@@ -14,9 +13,7 @@ const tip1 = {
 
 const tip2 = {
   nickname: 'xXk4r1m4rXxxXk4r1m4rXx1234',
-  firstname: 'Karl',
-  lastname: 'Marx',
-
+  fullname: 'Karl Marx',
   body: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
   created: new Date(),
   likes: 99,
@@ -26,8 +23,7 @@ const tip2 = {
 
 const tip3 = {
   nickname: 'pabl01',
-  firstname: 'Pablo',
-  lastname: 'Pablinsky',
+  fullname: 'Pablo Pablinsky',
   body: 'aa aaa aaaaaaaaaa aaa aaaa aaaaaaa a aaaaaaa aaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
   created: new Date(),
   likes: 99,
