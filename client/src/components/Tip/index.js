@@ -94,7 +94,7 @@ export const Tip = ({
               onChange={handleCheck}
             />
             <span>{comments}</span>
-            <b>→</b>
+            <b>•••</b>
           </label>
         </div>
      </form>

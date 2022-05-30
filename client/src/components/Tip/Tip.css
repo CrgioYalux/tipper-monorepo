@@ -23,7 +23,7 @@
 
   color: var(--brand-color-lightest);
 
-  padding: 5px 0 0 0;
+  padding: 5px 0;
 }
 
 /* Tip Client Info */
@@ -81,6 +81,7 @@
   height: 100%;
   display: flex;
   flex-direction: row;
+  font-size: .9em;
 }
 
 .Tip__Interaction > div {
@@ -92,14 +93,10 @@
 
 .Tip__Interaction > div > label {
   height: 100%;
-  aspect-ratio: 1;
-  position: relative;
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: center;
   cursor: pointer;
-  gap: 1px;
+  gap: 3px;
 }
 
 .Tip__Interaction > .Interaction_like > label.Interaction--selected { color: var(--like-color); }
@@ -107,10 +104,17 @@
 .Tip__Interaction > .Interaction_comment > label.Interaction--selected { color: var(--comment-color); }
 
 .Tip__Interaction > div > label > b {
+  position: relative;
+  top: 55%;
+  transform: translate(0%, -50%);
   font-family: monospace;
   font-weight: bold;
+  align-self: flex-start;
 }
 
 .Tip__Interaction > .Interaction_comment > label > b {
-  bottom: 2px;
+  font-size: .8em;
+  font-family: sans-serif;
+  letter-spacing: 1px;
 }
+
