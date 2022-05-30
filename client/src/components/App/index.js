@@ -8,7 +8,8 @@ const tip1 = {
   created: new Date(),
   likes: 10,
   dislikes: 5,
-  comments: 3 
+  comments: 3,
+  tip_id: 0
 }
 
 const tip2 = {
@@ -18,7 +19,8 @@ const tip2 = {
   created: new Date(),
   likes: 99,
   dislikes: 5,
-  comments: 3 
+  comments: 3,
+  tip_id: 1
 }
 
 const tip3 = {
@@ -28,7 +30,8 @@ const tip3 = {
   created: new Date(),
   likes: 99,
   dislikes: 5,
-  comments: 3 
+  comments: 3,
+  tip_id: 2
 }
 
 export const App = () => {

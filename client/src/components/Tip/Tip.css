@@ -1,5 +1,9 @@
 /* Component Container */
 .Tip {
+  --Tip_border-radius: 9px;
+  --Tip_margin: 10px;
+  --Tip_background-color: var(--primary-color-light);
+
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -12,14 +16,14 @@
 
   font-size: clamp(.8rem, 4vw, 1.4rem);
 
-  border-radius: 9px;
+  border-radius: var(--Tip_border-radius);
 
   box-sizing: border-box;
-  background-color: var(--primary-color-light);
+  background-color: var(--Tip_background-color);
 
   color: var(--brand-color-lightest);
 
-  padding: 5px 0;
+  padding: 5px 0 0 0;
 }
 
 /* Tip Client Info */
@@ -29,7 +33,6 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  --Tip__Client_info_spacing: 10px;
 }
 
 .Tip__Client_info b {
@@ -45,7 +48,7 @@
 
 .Tip__Client_info .Tip__Client_fullname { 
   font-weight: bold;
-  margin-left: var(--Tip__Client_info_spacing);
+  margin-left: var(--Tip_margin);
 }
 
 .Tip__Client_info .Tip__Client_nickname {
@@ -59,7 +62,7 @@
 .Tip__Client_info .Tip__Client_created {
   text-transform: lowercase;
   margin-left: auto;
-  margin-right: var(--Tip__Client_info_spacing);
+  margin-right: var(--Tip_margin);
 }
 
 /* Tip Content */
@@ -70,37 +73,44 @@
   word-break: break-all;
 }
 
-/* Tip Created */
-.Tip__Created {
-  height: 100%;
+/* Tip Interactions */
+.Tip__Interaction input { display: none; }
+
+.Tip__Interaction {
   width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.Tip__Interaction > div {
+  flex: 0 0 15%;
+  max-width: 100px;
+  display: grid;
+  place-items: center;
+}
+
+.Tip__Interaction > div > label {
+  height: 100%;
+  aspect-ratio: 1;
+  position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 0 0 5px 0;
+  justify-content: center;
+  cursor: pointer;
+  gap: 1px;
 }
 
+.Tip__Interaction > .Interaction_like > label.Interaction--selected { color: var(--like-color); }
+.Tip__Interaction > .Interaction_dislike > label.Interaction--selected { color: var(--dislike-color); }
+.Tip__Interaction > .Interaction_comment > label.Interaction--selected { color: var(--comment-color); }
 
-/* Tip Interactions */
-.Tip__Interaction {
-  display: flex;
-  flex-direction: row;
-  align-self: center;
-  width: 95%;
-  height: 100%;
-
-  --Tip__Interaction_spacing: 30px;
+.Tip__Interaction > div > label > b {
+  font-family: monospace;
+  font-weight: bold;
 }
 
-.Interaction_like {
-  color: var(--like-color); 
-  margin: 0 0 0 var(--Tip__Interaction_spacing);
-}
-.Interaction_dislike {
-  color: var(--dislike-color); 
-  margin: 0 auto 0 var(--Tip__Interaction_spacing);
-}
-.Interaction_comment {
-  color: var(--comment-color); 
-  margin: 0 var(--Tip__Interaction_spacing) 0 auto;
+.Tip__Interaction > .Interaction_comment > label > b {
+  bottom: 2px;
 }
