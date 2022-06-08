@@ -45,6 +45,7 @@ export const Tip = ({
     }
   }
 
+
   return (
     <div className={`Tip ${is_comment ? "_is_comment" : "_is_not_comment"}`}> 
       <div className="Tip__Client_info">

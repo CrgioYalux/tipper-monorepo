@@ -2,28 +2,26 @@ import { Tip } from '../Tip';
 import { useState, useEffect } from 'react';
 import './TipView.css';
 
-const tip3 = {
-  nickname: 'pabl01',
-  fullname: 'Pablo Pablinsky',
-  body: 'aa aaa aaaaaaaaaa aaa aaaa aaaaaaa a aaaaaaa aaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+const comment1 = {
+  nickname: 'font_roboto',
+  fullname: 'Mr. Robot',
+  body: 'ratio',
   created: new Date(),
-  likes: 99,
-  dislikes: 5,
+  likes: '1K',
+  dislikes: 1,
   comments: 3,
-  tip_id: 2,
   comment_id: 1
 }
 
-const tip1 = {
-  nickname: 'pabl01',
-  fullname: 'Pablo Pablinsky',
-  body: 'aa aaa aaaaaaaaaa aaa aaaa aaaaaaa a aaaaaaa aaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+const comment2 = {
+  nickname: 'tyrwellick',
+  fullname: 'Tyrell Wellick',
+  body: 'bonsoir Elliot',
   created: new Date(),
-  likes: 99,
-  dislikes: 5,
-  comments: 3,
-  tip_id: 2,
-  comment_id: 5
+  likes: 2,
+  dislikes: 1,
+  comments: 0,
+  comment_id: 2
 }
 
 export const TipView = ({
@@ -36,7 +34,7 @@ export const TipView = ({
     comments,
     tip_id
 }) => {
-  const [tipComments, setTipComments] = useState([tip3, tip1]);
+  const [tipComments, setTipComments] = useState([comment1, comment2]);
 
   useEffect(() => {
     // get Tip comments with .tip_id
@@ -58,7 +56,13 @@ export const TipView = ({
 
       <div className="Tip_Comments">
         {
-          tipComments.map(({comment_id, ...comment}) => <Tip is_comment={true} key={comment_id} comment_id={comment_id} {...comment} />)
+          tipComments.map(({comment_id, ...comment}) => (
+            <Tip
+              is_comment={true}
+              key={comment_id}
+              tip_id={`comment_${comment_id}`}
+              {...comment} />)
+          ) 
         }
       </div>
     </div>
