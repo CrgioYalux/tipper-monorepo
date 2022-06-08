@@ -1,5 +1,6 @@
 import './App.css';
 import { Tip } from '../Tip';
+import { TipView } from '../TipView';
 
 const tip1 = {
   nickname: 'pabl01',
@@ -38,9 +39,7 @@ export const App = () => {
   return (
     <div className="App">
       <div className="Tips_container">
-        <Tip {...tip1} />
-        <Tip {...tip2} />
-        <Tip {...tip3} />
+      <TipView {...tip1}/>
       </div>
     </div>
   )

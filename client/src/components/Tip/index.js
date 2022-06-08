@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './Tip.css';
+import './Comment.css';
 
 export const Tip = ({
   nickname,
@@ -9,7 +10,8 @@ export const Tip = ({
   likes,
   dislikes,
   comments,
-  tip_id
+  tip_id,
+  is_comment
 }) => {
   const [interactionSelected, setInteractionSelected] = useState("");
 
@@ -44,7 +46,7 @@ export const Tip = ({
   }
 
   return (
-    <div className="Tip"> 
+    <div className={`Tip ${is_comment ? "_is_comment" : "_is_not_comment"}`}> 
       <div className="Tip__Client_info">
         <span className="Tip__Client_fullname">{fullname}</span>
         <b>•</b>

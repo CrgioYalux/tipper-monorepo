@@ -1,8 +1,8 @@
+
 /* Component Container */
 .Tip {
   --Tip_border-radius: 9px;
   --Tip_margin: 10px;
-  --Tip_background-color: var(--primary-color-light);
 
   display: flex;
   flex-direction: column;

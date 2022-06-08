@@ -83,5 +83,7 @@ table {
   --dislike-color: hsl(0, 50%, 50%);
   --like-color: hsl(150, 50%, 50%);
   --comment-color: var(--brand-color);
+  --Tip_background-color: var(--primary-color-light);
+  --Comment_background-color: var(--primary-color-lighter);
 }
 

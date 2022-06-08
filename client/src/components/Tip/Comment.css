@@ -1,0 +1,42 @@
+.Tip._is_comment {
+  --pseudo-size: clamp(2px, .5vw, 6px);
+  --pseudo-border-radius: 999px;
+  --pseudo-background-color: var(--brand-color);
+
+  position: relative;
+  width: 90%;
+  margin-top: 5px;
+  margin-left: auto;
+  
+  box-sizing: content-box;
+  background-color: var(--Comment_background-color);
+
+  border-left: var(--pseudo-size) solid var(--pseudo-background-color);
+}
+
+.Tip._is_comment::after, .Tip._is_comment::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: calc(-5%);
+  transform: translate(0%, -50%);
+  background-color: var(--pseudo-background-color);
+}
+
+.Tip._is_comment::after {
+  width: var(--pseudo-size);
+  height: 50%;
+  top: 0;
+  transform: translate(0%, 0%);
+  border-top-right-radius: var(--pseudo-border-radius);
+  border-top-left-radius: var(--pseudo-border-radius);
+  border-bottom-left-radius: var(--pseudo-border-radius);
+}
+
+.Tip._is_comment::before {
+  width: 5%;
+  height: var(--pseudo-size);
+  border-bottom-right-radius: var(--pseudo-border-radius);
+  border-bottom-left-radius: var(--pseudo-border-radius);
+  border-top-right-radius: var(--pseudo-border-radius);
+}
