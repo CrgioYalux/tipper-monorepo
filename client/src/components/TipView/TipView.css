@@ -20,8 +20,8 @@
 }
 
 .TipView > div.Tip_Comments::before {
-  position: absolute;
   content: "";
+  position: absolute;
 
   width: var(--pseudo-size);
   height: calc(100% - (((100% - ((var(--cant-comments) - 1) * var(--Comment-spacing))) / var(--cant-comments))) / 2 + var(--Comment-spacing)); 

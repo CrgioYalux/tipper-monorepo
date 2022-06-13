@@ -9,11 +9,10 @@ body { background-color: var(--primary-color); }
 
 .Tips_container {
   justify-self: end;
-  width: 100vw; /* for mobiles it takes 100vw, cuz the navbar is at the bottom of the page*/
+  width: 100vw;
   display: flex;
   flex-direction: column;
   gap: 5px;
-  /* max-width: calc(var(--small-mobile-width) - 40px); */
 }
 
 @media screen and (min-width: 1024px) {

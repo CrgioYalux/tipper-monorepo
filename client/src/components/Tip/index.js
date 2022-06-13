@@ -11,8 +11,7 @@ export const Tip = ({
   dislikes,
   comments,
   tip_id,
-  is_comment,
-  is_last_comment
+  is_comment
 }) => {
   const [interactionSelected, setInteractionSelected] = useState("");
 
@@ -46,9 +45,8 @@ export const Tip = ({
     }
   }
 
-
   return (
-    <div className={`Tip ${is_comment ? "_is_comment" : "_is_not_comment"} ${is_last_comment ? "_is_last_comment" : "_is_not_last_comment"}`}> 
+    <div className={`Tip ${is_comment ? "_is_comment" : "_is_not_comment"}`}> 
       <div className="Tip__Client_info">
         <span className="Tip__Client_fullname">{fullname}</span>
         <b>•</b>
