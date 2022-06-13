@@ -24,6 +24,28 @@ const comment2 = {
   comment_id: 2
 }
 
+const comment3 = {
+  nickname: 'angymoss',
+  fullname: 'Angela Moss',
+  body: '!!!!!!!!!!!!!!',
+  created: new Date(),
+  likes: 2,
+  dislikes: 1,
+  comments: 0,
+  comment_id: 3
+}
+
+const comment4 = {
+  nickname: 'angymoss',
+  fullname: 'Angela Moss',
+  body: '???????????????????',
+  created: new Date(),
+  likes: 5,
+  dislikes: 1,
+  comments: 0,
+  comment_id: 4
+}
+
 export const TipView = ({
     nickname,
     fullname,
@@ -34,7 +56,7 @@ export const TipView = ({
     comments,
     tip_id
 }) => {
-  const [tipComments, setTipComments] = useState([comment1, comment2]);
+  const [tipComments, setTipComments] = useState([comment1, comment2, comment3, comment4]);
 
   useEffect(() => {
     // get Tip comments with .tip_id
@@ -54,14 +76,16 @@ export const TipView = ({
         tip_id={tip_id}
       />
 
-      <div className="Tip_Comments">
+      <div className="Tip_Comments" style={{'--cant-comments': tipComments.length}}>
         {
-          tipComments.map(({comment_id, ...comment}) => (
+          tipComments.map(({comment_id, ...comment}, index) => (
             <Tip
               is_comment={true}
               key={comment_id}
               tip_id={`comment_${comment_id}`}
-              {...comment} />)
+              {...comment}
+            />
+            )
           ) 
         }
       </div>

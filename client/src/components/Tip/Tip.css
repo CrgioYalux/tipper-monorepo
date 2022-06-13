@@ -1,9 +1,9 @@
-
 /* Component Container */
 .Tip {
   --Tip_border-radius: 9px;
   --Tip_margin: 10px;
 
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -19,6 +19,7 @@
   border-radius: var(--Tip_border-radius);
 
   box-sizing: border-box;
+
   background-color: var(--Tip_background-color);
 
   color: var(--brand-color-lightest);

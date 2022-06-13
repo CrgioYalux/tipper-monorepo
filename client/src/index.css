@@ -61,9 +61,9 @@ table {
 
   /* Colors */
   --primary-color: hsl(0, 0%, 0%);
-  --primary-color-light: hsl(0, 0%, 10%);
-  --primary-color-lighter: hsl(0, 0%, 20%);
-  --primary-color-lightest: hsl(0, 0%, 30%);
+  --primary-color-light: hsl(0, 0%, 5%);
+  --primary-color-lighter: hsl(0, 0%, 10%);
+  --primary-color-lightest: hsl(0, 0%, 15%);
 
   --secondary-color: hsl(0, 0%, 100%);
   --secondary-color-dark: hsl(0, 0%, 90%);
