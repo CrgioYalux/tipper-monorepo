@@ -17,7 +17,7 @@ CREATE TABLE Tip(
 	FOREIGN KEY (fk_client_id) REFERENCES Client (pk_client_id)
 );
 
-CREATE TABLE Tip_reaction(
+CREATE TABLE TipReaction(
 	pk_tip_reaction_id SERIAL PRIMARY KEY,
 	fk_tip_id INTEGER NOT NULL,
 	times_liked INTEGER,
@@ -25,13 +25,15 @@ CREATE TABLE Tip_reaction(
 	FOREIGN KEY (fk_tip_id) REFERENCES TIP (pk_tip_id)
 );
 
-CREATE TABLE Tip_comment(
-	pk_tip_comment_id SERIAL PRIMARY KEY,
-	fk_tip_id INTEGER NOT NULL,
-	fk_client_id INTEGER NOT NULL,
-	body VARCHAR(240) NOT NULL,
-	FOREIGN KEY (fk_tip_id) REFERENCES TIP (pk_tip_id),
-	FOREIGN KEY (fk_client_id) REFERENCES Client (pk_client_id)
+CREATE TABLE TipComment(
+	fk_from_client_id INTEGER NOT NULL,
+  fk_to_client_id INTEGER NOT NULL,
+  fk_from_tip_id INTEGER NOT NULL,
+	fk_to_tip_id INTEGER NOT NULL,
+  FOREIGN KEY (fk_from_client_id) REFERENCES CLIENT (pk_client_id),
+  FOREIGN KEY (fk_to_client_id) REFERENCES CLIENT (pk_client_id),
+  FOREIGN KEY (fk_from_tip_id) REFERENCES TIP (pk_tip_id),
+  FOREIGN KEY (fk_to_tip_id) REFERENCES TIP (pk_tip_id)
 );
 
 /* Functions Definition */
