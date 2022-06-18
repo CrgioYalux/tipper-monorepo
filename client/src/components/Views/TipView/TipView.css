@@ -2,6 +2,7 @@
   --pseudo-size: clamp(2px, .5vw, 6px);
   --pseudo-background-color: var(--brand-color-dark);
   --Comment-spacing: 5px;
+
   padding-right: 10px;
   padding-left: 10px;
 }
@@ -11,7 +12,7 @@
   margin-bottom: 5px;
 }
 
-.TipView > div.Tip_Comments {
+.TipView > div.Tip_Comments.--has-comments {
   position: relative;
   padding-left: 10%;
   display: flex;
@@ -19,7 +20,7 @@
   gap: var(--Comment-spacing);
 }
 
-.TipView > div.Tip_Comments::before {
+.TipView > div.Tip_Comments.--has-comments::before {
   content: "";
   position: absolute;
 

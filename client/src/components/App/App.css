@@ -10,9 +10,6 @@ body { background-color: var(--primary-color); }
 .Tips_container {
   justify-self: end;
   width: 100vw;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
 }
 
 @media screen and (min-width: 1024px) {
@@ -21,3 +18,23 @@ body { background-color: var(--primary-color); }
   }
 }
 
+.App > button {
+  position: fixed;
+  bottom: 5%;
+  left: 5%;
+
+  color: var(--brand-color-lighter);
+  background-color: transparent;
+
+  font-family: var(--secondary-font);
+  font-weight: 800;
+
+  border: 2px solid currentColor;
+  border-radius: 3px;
+
+  cursor: pointer;
+}
+.App > button:focus {
+  outline-offset: 4px;
+  outline: 1px solid var(--brand-color);
+}

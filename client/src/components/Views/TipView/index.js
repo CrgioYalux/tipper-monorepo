@@ -1,5 +1,6 @@
-import { Tip } from '../Tip';
 import { useState, useEffect } from 'react';
+import { Tip } from '../../Tip';
+import { comments as mock_comments } from '../../Tip/mock_data.js';
 import './TipView.css';
 
 export const TipView = ({
@@ -12,8 +13,8 @@ export const TipView = ({
     comments,
     tip_id
 }) => {
-  const [tipComments, setTipComments] = useState([]);
-  
+  const [tipComments, setTipComments] = useState([...mock_comments]);
+  const hasComments = tipComments.length !== 0;
   return (
     <div className="TipView">
       <Tip
@@ -25,18 +26,19 @@ export const TipView = ({
         dislikes={dislikes}
         comments={comments}
         tip_id={tip_id}
+        is_comment={false}
       />
-      <div className="Tip_Comments" style={{'--cant-comments': tipComments.length}}>
+      <div
+        className={`Tip_Comments ${hasComments ? '--has-comments' : '--has-no-comments'}`} 
+        style={{'--cant-comments': tipComments.length}}>
         {
-          tipComments.map(({comment_id, ...comment}, index) => (
+          tipComments.map((comment) => (
             <Tip
+              key={comment.tip_id}
               is_comment={true}
-              key={comment_id}
-              tip_id={`comment_${comment_id}`}
               {...comment}
             />
-            )
-          ) 
+          )) 
         }
       </div>
     </div>

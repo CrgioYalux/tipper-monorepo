@@ -25,6 +25,7 @@
   color: var(--brand-color-lightest);
 
   padding: 5px 0;
+  cursor: pointer;
 }
 
 /* Tip Client Info */
@@ -98,6 +99,7 @@
   flex-direction: row;
   cursor: pointer;
   gap: 3px;
+  user-select: none;
 }
 
 .Tip__Interaction > .Interaction_like > label.Interaction--selected { color: var(--like-color); }
