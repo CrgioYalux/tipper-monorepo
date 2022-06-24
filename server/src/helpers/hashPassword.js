@@ -1,14 +1,21 @@
 const argon2 = require('argon2');
 
-async function hashPasswordWithSaltAndPepper(password = "", salt = "", pepper = "") {
-    try {
-      if (!(typeof something === 'string' && typeof salt === 'string'))
-        throw new Error("TypeError: passed arguments should be strings");
-
-      const hash = await argon2.hash(password + salt + pepper);
-
-      return hash;
-    } catch (error) { console.error(error); }
+function hashPasswordWithSaltAndPepper(password = "", salt = "", pepper = "") {
+  return new Promise((resolve, reject) => {
+    if (!password) reject("No password passed");
+    (async () => {
+      const toBeHashed = password + salt + pepper;
+      const hash = await argon2.hash(toBeHashed);
+      resolve(hash);
+    })();
+  });
 }
 
-module.exports = { hashPasswordWithSaltAndPepper };
+function checkIfMatches(hash, check) {
+  return new Promise(async (resolve, reject) => {
+    if (!hash || !check) reject("there's empty required arguments");
+    resolve(await argon2.verify(hash, check))
+  });
+}
+
+module.exports = { hashPasswordWithSaltAndPepper, checkIfMatches };

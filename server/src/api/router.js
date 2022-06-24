@@ -4,104 +4,156 @@ const { pool } = require('../pg/connection.js');
 const { TIP_ROUTES, CLIENT_ROUTES } = require('./routes.js');
 const { TIP_QUERIES } = require('../pg/tip/queries.js');
 const { CLIENT_QUERIES } = require('../pg/client/queries.js');
-const { hashPasswordWithSaltAndPepper } = require('../helpers/hashPassword.js');
+const { hashPasswordWithSaltAndPepper, checkIfMatches } = require('../helpers/hashPassword.js');
 const { generateSalt } = require('../helpers/generateSalt.js');
 const { getPepper } = require('./getPepper.js');
 const { checkParams } = require('../helpers/checkParams.js');
 
 router.all('/**/**', (req, res, next) => {
   console.log(`
-    ${req.method} ${req.url}
+    ${req.method} ${req.url} at ${Date.now()}
   `);
   next();
 });
 
-// CLIENT REQUESTS
-
-router.get(CLIENT_ROUTES.GET_ONE, (req, res, next) => {
-  const { id } = req.params;
-  if (!id) return res.json({message: "No ID specified"}).status(400).end();
-  pool.query(CLIENT_QUERIES.GET_ONE(id), (q_err, q_res) => {
+const execQuery = (query, values, next, callback)=> {
+  pool.query(query, [...values], (q_err, q_res) => {
     if (q_err) return next(q_err);
     const rows = JSON.parse(JSON.stringify(q_res.rows));
-    res.json({rows}).status(302).end();
+    callback(rows);
+  });
+}
+
+// CLIENT ROUTES
+
+router.get(CLIENT_ROUTES.GET, (req, res, next) => {
+  const client = req.params[0];
+
+  if (!client || client.toLowerCase().trim() === 'all') return execQuery(CLIENT_QUERIES.GET_ALL, [], next, (found_rows) => {
+    // res.status(404).end(); // in case I don't want that getting all the clients in the db is possible
+    res.status(200).json({clients: found_rows}).end(); 
+  });
+
+  let query = isFinite(Number(client)) ? CLIENT_QUERIES.GET_ONE_FROM_ID : CLIENT_QUERIES.GET_ONE_FROM_NICKNAME;
+  execQuery(query, [client], next, (found_rows) => {
+    if (found_rows.length === 0) return res.status(404).send("Client not found").end();
+    res.status(200).json({client: found_rows[0]}).end();
   });
 });
 
-router.post(CLIENT_ROUTES.CREATE, (req, res, next) => {
-  const { nickname, firstname, lastname, email, password } = req.params;
-  if (!checkParams([nickname, firstname, lastname, email, password])) 
-    return res.json({message: "There's empty required fields"}).status(400).end();
+router.post(CLIENT_ROUTES.POST, (req, res, next) => {
+  const { nickname, fullname, email, password } = req.body;
+
+  if (!nickname || !fullname || !email || !password) return next("There's empty required fields");
 
   const salt = generateSalt(32);
   const pepper = getPepper();
-  const hash = hashPasswordWithSaltAndPepper(password, salt, pepper);
+  hashPasswordWithSaltAndPepper(password, salt, pepper)
+    .then((hash) => {
+      execQuery(CLIENT_QUERIES.POST, [nickname, fullname, email, hash, salt], next, (created_rows) => {
+        res.status(201).json({client: created_rows[0]}).end();
+      });
+    })
+    .catch(next);
+});
 
-  pool.query(CLIENT_QUERIES.CREATE(nickname, firstname, lastname, email, hash, salt), (q_err, q_res) => {
-    if (q_err) return next(q_err);
-    const rows = JSON.parse(JSON.stringify(q_res.rows));
-    res.json({rows}).status(302).end();
+router.delete(CLIENT_ROUTES.DELETE, (req, res, next) => {
+  const { client, password } = req.body;
+
+  if (!client || !password) return next("There's empty required fields");
+
+  let query = isFinite(Number(client)) ? CLIENT_QUERIES.GET_SALT_FROM_ID : CLIENT_QUERIES.GET_SALT_FROM_NICKNAME;
+  execQuery(query, [client], next, (found_rows) => {
+    if (found_rows.length === 0) return next("Client not found");
+
+    const { client_id, salt, hash } = found_rows[0];
+    const pepper = getPepper();
+
+    checkIfMatches(hash, password + salt + pepper)
+    .then((match) => {
+      match
+        ? execQuery(CLIENT_QUERIES.DELETE, [client_id, hash], next, (deleted_rows) => {
+            res.status(204).json({client: deleted_rows[0]}).end();
+          })
+        : next("Incorrect password");
+    });
   });
 });
 
-router.get(CLIENT_ROUTES.DELETE, (req, res, next) => {
-  const { id } = req.params;
-  if (!id) return res.json({message: "No ID specified"}).status(400).end();
-  pool.query(CLIENT_QUERIES.DELETE(id), (q_err, q_res) => {
-    if (q_err) return next(q_err);
-    const rows = JSON.parse(JSON.stringify(q_res.rows));
-    res.json({rows}).status(302).end();
+// TIP ROUTES
+
+router.get(TIP_ROUTES.GET, (req, res, next) => {
+  const client = req.params[0];
+  const tip = req.params[1];
+  
+  if (!client) return next("No client id or nickname passed");
+  if (tip && isNaN(Number(tip))) return next("Tip requested with a string instead of an integer");
+
+  if (!tip) {
+    let query = isFinite(Number(client)) ? TIP_QUERIES.GET_ALL_FROM_CLIENT_ID : TIP_QUERIES.GET_ALL_FROM_CLIENT_NICKNAME;
+    execQuery(query, [client], next, (found_rows) => {
+      res.status(200).json({tips: found_rows}).end();
+    });
+  } 
+  else {
+    let query = isFinite(Number(client)) ? TIP_QUERIES.GET_ONE_FROM_CLIENT_ID : TIP_QUERIES.GET_ONE_FROM_CLIENT_NICKNAME;
+    execQuery(query, [client, tip], next, (found_rows) => {
+      if (found_rows.length === 0) return res.status(404).send("Tip not found");
+      res.status(200).json({tip: found_rows[0]}).end();
+    });
+  }
+});
+
+router.post(TIP_ROUTES.POST, (req, res, next) => {
+  const { client, password, tip } = req.body;
+
+  if (!client || !password || !tip) return next("There's empty required fields");
+  if (tip.trim().length === 0) return next('No tip passed');
+
+  let query = isFinite(Number(client)) ? CLIENT_QUERIES.GET_SALT_FROM_ID : CLIENT_QUERIES.GET_SALT_FROM_NICKNAME;
+  execQuery(query, [client], next, (found_rows) => {
+    if (found_rows.length === 0) return next("Client not found");
+
+    const { client_id, salt, hash } = found_rows[0];
+    const pepper = getPepper();
+ 
+    checkIfMatches(hash, password + salt + pepper)
+    .then((match) => {
+      match 
+        ? execQuery(TIP_QUERIES.POST, [client_id, tip], next, (created_rows) => {
+            res.status(201).json({tip: created_rows[0]}).end();
+          })
+        : next("Incorrect password");
+    });
   });
 });
 
-// TIP REQUESTS 
+router.delete(TIP_ROUTES.DELETE, (req, res, next) => {
+  const { client, password, tip } = req.body;
 
-router.get(TIP_ROUTES.GET_ALL, (req, res, next) => {
-  const { client_id } = req.params;
-  if (!client_id) return res.json({message: "No Client ID specified"}).status(400).end();
-  pool.query(TIP_QUERIES.GET_ALL(client_id), (q_err, q_res) => {
-    if (q_err) return next(q_err);
-    const rows = JSON.parse(JSON.stringify(q_res.rows));
-    res.json({rows}).status(302).end();
+  if (!client || !password || !tip) return next("There's empty required fields");
+  if (isNaN(Number(tip))) return next("Tip requested with a string instead of an integer");
+  
+  let query = isFinite(Number(client)) ? CLIENT_QUERIES.GET_SALT_FROM_ID : CLIENT_QUERIES.GET_SALT_FROM_NICKNAME;
+  execQuery(query, [client], next, (found_rows) => {
+    if (found_rows.length === 0) return next("Client not found");
+
+    const { client_id, salt, hash } = found_rows[0];
+    const pepper = getPepper();
+
+    checkIfMatches(hash, password + salt + pepper)
+    .then((match) => {
+      match
+        ? execQuery(TIP_QUERIES.DELETE, [client_id, tip], next, (deleted_rows) => {
+            res.status(204).json({tip: deleted_rows[0]}).end();
+          })
+        : next("Incorrect password");
+    });
   });
-});
-
-router.get(TIP_ROUTES.GET_ONE, (req, res, next) => {
-  // to be able to do api/tip/get/:user/:tip_id would be nice
-  // for now i'll use the client_id instead of the user's nickname
-  const { client_id, tip_id } = req.params;
-  if (!checkParams([client_id, tip_id])) 
-    return res.json({message: "There's empty required fields"}).status(400).end();
-  pool.query(TIP_QUERIES.GET_ONE(client_id, tip_id), (q_err, q_res) => {
-    if (q_err) return next(q_err);
-    const rows = JSON.parse(JSON.stringify(q_res.rows));
-    res.json({rows}).status(302).end();
-  });
-});
-
-router.get(TIP_ROUTES.CREATE, (req, res, next) => {
-  const { client_id, body } = req.params;
-  if (!checkParams([client_id, body])) 
-    return res.json({message: "There's empty required fields"}).status(400).end();
-  pool.query(TIP_QUERIES.CREATE(client_id, body), (req, res, next) => {
-    if (q_err) return next(q_err);
-    const rows = JSON.parse(JSON.stringify(q_res.rows));
-    res.json({rows}).status(302).end();
-  });
-});
-
-router.get(TIP_ROUTES.DELETE, (req, res, next) => {
-  const { id } = req.params;
-  if (!id) return res.json({message: "No ID specified"}).status(400).end();
-  pool.query(TIP_QUERIES.DELETE(id), (req, res, next) => {
-    if (q_err) return next(q_err);
-    const rows = JSON.parse(JSON.stringify(q_res.rows));
-    res.json({rows}).status(302).end();
-  })
 });
 
 router.use((err, req, res, next) => {
-  res.json({error: `Query failed: ${err}`}).status(409).end();
+  res.status(400).json({error:err}).end();
 });
 
 module.exports = { router };
