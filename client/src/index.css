@@ -85,5 +85,7 @@ table {
   --comment-color: var(--brand-color);
   --Tip_background-color: var(--primary-color-light);
   --Comment_background-color: var(--primary-color-lighter);
+  --error-color: hsl(10, 60%, 40%);
+  --success-color: hsl(140, 60%, 40%);
 }
 

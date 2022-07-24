@@ -2,7 +2,8 @@ import { useContext, createContext, useState, useEffect } from 'react';
 
 export const VIEWS = {
   HOME: "HOME",
-  TIP: "TIP"
+  ACCESS: "ACCESS",
+  TIP: "TIP",
 };
 
 const ViewContext = createContext(VIEWS.HOME);

@@ -1,0 +1,79 @@
+.Input__default_class  {
+  --Input__default_font-color: var(--secondary-color);
+
+  width: 100%;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1em;
+  
+  font-family: var(--primary-font);
+
+}
+
+.Input__default_class.--valid-input {
+  --Input__default_font-color: var(--success-color);
+}
+
+.Input__default_class.--invalid-input {
+  --Input__default_font-color: var(--error-color);
+}
+
+.Input__default_class,
+.Input_field__default_class,
+.Input_label__default_class,
+.Input_rule_message__default_class {
+  color: var(--Input__default_font-color);
+  transition: color .4s;
+}
+
+.Input__default_class > div {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: auto;
+  font-weight: bold;
+}
+
+.Input_label__default_class {
+  margin-left: 10px;
+}
+
+.Input_field__default_class {
+  margin-left: auto;
+  flex: 0 1 65%;
+
+  border: 1px solid currentColor;
+  border-radius: 9px;
+  background-color: transparent;
+
+  font-size: 1em;
+  text-align: center;
+}
+
+.Input_rule_messages__default_class {
+  margin-top: 7.5px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  font-size: .75em;
+  line-height: 1;
+}
+
+.Input_rule_message__default_class {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  list-style: none;
+}
+
+.Input_rule_message__default_class > b {
+  margin-left: 5px;
+  width: 90%;
+  display: inline-block;
+}
