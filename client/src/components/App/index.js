@@ -11,9 +11,9 @@ export const App = () => {
   const { currentView, selectedTip, goToHome } = useView();
   const [user, setUser] = useState(null);
   const [logged, setLogged] = useState(false);
-
+  
   return (
-    <div className="App">
+    <div className={`App ${logged ? "--logged" : "--unlogged"}`}>
       {
         logged
         ? (
@@ -22,12 +22,8 @@ export const App = () => {
               {(currentView === VIEWS.TIP && selectedTip !== null) && <TipView {...selectedTip} />}
             </div>
           )
-        : (
-            <div className="">
-              <AccessView /> 
-            </div>
-          )
-        }
+        : <AccessView /> 
+    }
       {currentView === VIEWS.TIP && <button onClick={() => goToHome()}>home</button>}
     </div>
   )

@@ -18,7 +18,7 @@ export const SignUp = () => {
     <form className="SignUp" onSubmit={handleSubmit}>
       <Input
         label="Fullname"
-        name="FullnameInput"
+        name="FullnameInputSignUp"
         rule={fullnameRe}
         ruleMessages={["must use alphabetical characters only"]}
         value={fullname}
@@ -29,7 +29,7 @@ export const SignUp = () => {
       />
       <Input
         label="Nickname"
-        name="NicknameInput"
+        name="NicknameInputSignUp"
         rule={nicknameRe}
         ruleMessages={[
           "must use alphanumerical characters, _ and . only",
@@ -42,7 +42,7 @@ export const SignUp = () => {
       />
       <Input
         label="Password"
-        name="PasswordInput"
+        name="PasswordInputSignUp"
         type="password"
         rule={passwordRe}
         ruleMessages={[
@@ -56,7 +56,7 @@ export const SignUp = () => {
       />
       <Input
         label="Email"
-        name="EmailInput"
+        name="EmailInputSignUp"
         type="email"
         rule={emailRe}
         ruleMessages={["must be a valid email"]}
@@ -65,7 +65,7 @@ export const SignUp = () => {
           onChange: (change) => setEmail(change)
         }}
       />
-      <button type="submit" className="SignUp_create_button">create</button>
+      <button type="submit" className="SignUp_create_button">sign up</button>
     </form>
   );
 };

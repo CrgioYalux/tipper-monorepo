@@ -1,0 +1,40 @@
+.AccessView {
+  width: max-content;
+  height: max-content;
+  display: grid;
+  place-items: center;
+  row-gap: 10px;
+  column-gap: 10px;
+  
+  grid-template-colums: repeat(auto-fit, minmax(min-content, 1fr));
+}
+
+.AccessView form {
+  width: min-content;
+  height: min-content;
+}
+
+.AccessView form:nth-child(1) {
+  margin-top: auto;
+}
+
+.AccessView form:nth-child(2) {
+  margin-bottom: auto;
+}
+
+@media screen and (min-width: 1024px) {
+  .AccessView form {
+    /* width: max-content; */
+  }
+  .AccessView form:nth-child(1) {
+    grid-area: 1 / 1 / 2 / 2;
+    margin-top: 0;
+    margin-left: auto;
+    margin-bottom: auto;
+  }
+  .AccessView form:nth-child(2) {
+    grid-area: 1 / 2 / 2 / 3;
+    margin-bottom: 0;
+    margin-right: auto;
+  }
+}

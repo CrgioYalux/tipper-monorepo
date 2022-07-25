@@ -1,9 +1,9 @@
-.SignUp {
+.LogIn {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 10px;
 
   padding: 10px;
 
@@ -14,7 +14,7 @@
   background-color: var(--primary-color-light);
 }
 
-.SignUp_create_button {
+.LogIn_create_button {
   font-size: 1rem;
   font-family: var(--primary-font);
   font-weight: 800;
@@ -27,9 +27,4 @@
   border-radius: 999px;
 
   cursor: pointer;
-}
-
-.SignUp_create_button:focus {
-  outline: 2px solid var(--secondary-color);
-  outline-offset: 4px;
 }

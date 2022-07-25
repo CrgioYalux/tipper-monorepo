@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-size: 1em;
+  font-size: clamp(.9em, 4vw, 1.1em);
   
   font-family: var(--primary-font);
 
@@ -32,18 +32,17 @@
   width: 100%;
   display: flex;
   flex-direction: row;
+  gap: 10px;
   align-items: center;
-  margin-bottom: auto;
-  font-weight: bold;
 }
 
 .Input_label__default_class {
-  margin-left: 10px;
+  font-weight: bold;
 }
 
 .Input_field__default_class {
+  flex: 0 0 65%;
   margin-left: auto;
-  flex: 0 1 65%;
 
   border: 1px solid currentColor;
   border-radius: 9px;
@@ -54,14 +53,13 @@
 }
 
 .Input_rule_messages__default_class {
-  margin-top: 7.5px;
+  margin-top: 10px;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 5px;
   font-size: .75em;
-  line-height: 1;
 }
 
 .Input_rule_message__default_class {
