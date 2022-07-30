@@ -10,7 +10,7 @@ import { useTheme } from '../../providers/ThemeProvider';
 export const App = () => {
   const { currentView, selectedTip, goToHome } = useView();
   const [user, setUser] = useState(null);
-  const [logged, setLogged] = useState(false);
+  const [logged, setLogged] = useState(true);
   const { theme, toggleTheme } = useTheme();
  
   return (

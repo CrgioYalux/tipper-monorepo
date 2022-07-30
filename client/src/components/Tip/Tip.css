@@ -3,6 +3,7 @@
   --Tip_border-radius: 9px;
   --Tip_margin: 10px;
 
+  width: 100%;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -10,10 +11,9 @@
   justify-content: center;
   gap: 5px;
 
-  width: 100%;
-
+  color: var(--brand-color-lightest);
+  color: var(--secondary-color-opacity-high);
   font-family: var(--primary-font);
-
   font-size: clamp(.8rem, 4vw, 1.4rem);
 
   border-radius: var(--Tip_border-radius);
@@ -21,8 +21,6 @@
   box-sizing: border-box;
 
   background-color: var(--Tip_background-color);
-
-  color: var(--brand-color-lightest);
 
   padding: 5px 0;
   cursor: pointer;
