@@ -1,19 +1,14 @@
+import './index.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import { App } from './components/App';
-import { ViewProvider } from '../src/providers/ViewProvider';
-import { QueryClient, QueryClientProvider } from 'react-query';
-
-const queryClient = new QueryClient();
+import { ProvidersWrapper } from './components/ProvidersWrapper';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <ViewProvider>
-        <App />
-      </ViewProvider>
-    </QueryClientProvider>
+    <ProvidersWrapper>
+      <App />
+    </ProvidersWrapper>
   </React.StrictMode>
 );

@@ -60,17 +60,7 @@ table {
   --secondary-font: 'Roboto', sans-serif;
 
   /* Colors */
-  --primary-color: hsl(0, 0%, 0%);
-  --primary-color-light: hsl(0, 0%, 5%);
-  --primary-color-lighter: hsl(0, 0%, 10%);
-  --primary-color-lightest: hsl(0, 0%, 15%);
-
-  --secondary-color: hsl(0, 0%, 100%);
-  --secondary-color-dark: hsl(0, 0%, 90%);
-  --secondary-color-darker: hsl(0, 0%, 80%);
-  --secondary-color-darkest: hsl(0, 0%, 70%);
-
-  --brand-color-hue: 230;
+  --brand-color-hue: 250;
 
   --brand-color-lightest: hsl(var(--brand-color-hue), 50%, 80%);
   --brand-color-lighter: hsl(var(--brand-color-hue), 50%, 70%);
@@ -80,12 +70,68 @@ table {
   --brand-color-darker: hsl(var(--brand-color-hue), 50%, 30%);
   --brand-color-darkest: hsl(var(--brand-color-hue), 50%, 20%);
 
+  --comment-color: var(--brand-color);
   --dislike-color: hsl(0, 50%, 50%);
   --like-color: hsl(150, 50%, 50%);
-  --comment-color: var(--brand-color);
-  --Tip_background-color: var(--primary-color-light);
-  --Comment_background-color: var(--primary-color-lighter);
   --error-color: hsl(10, 60%, 40%);
   --success-color: hsl(140, 60%, 40%);
+
+  /* COLOR SCHEME */
+  color-scheme: light dark;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
 }
 
+:root, :root.light {
+  --primary-color-opacity-full: hsl(0, 0%, 100%);
+  --primary-color-opacity-high: hsl(0, 0%, 85%);
+  --primary-color-opacity-medium: hsl(0, 0%, 70%);
+  --primary-color-opacity-low: hsl(0, 0%, 55%);
+  --secondary-color-opacity-full: hsl(0, 0%, 0%);
+  --secondary-color-opacity-high: hsl(0, 0%, 15%);
+  --secondary-color-opacity-medium: hsl(0, 0%, 30%);
+  --secondary-color-opacity-low: hsl(0, 0%, 45%);
+
+  --Tip_background-color: var(--primary-color-opacity-full);
+  --Comment_background-color: var(--primary-color-opacity-medium);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color-opacity-full: hsl(0, 0%, 0%);
+    --primary-color-opacity-high: hsl(0, 0%, 15%);
+    --primary-color-opacity-medium: hsl(0, 0%, 30%);
+    --primary-color-opacity-low: hsl(0, 0%, 45%);
+    --secondary-color-opacity-full: hsl(0, 0%, 100%);
+    --secondary-color-opacity-high: hsl(0, 0%, 85%);
+    --secondary-color-opacity-medium: hsl(0, 0%, 70%);
+    --secondary-color-opacity-low: hsl(0, 0%, 55%);
+
+    --Tip_background-color: var(--primary-color-opacity-full);
+    --Comment_background-color: var(--primary-color-opacity-medium);
+  }
+}
+
+:root.dark {
+  --primary-color-opacity-full: hsl(0, 0%, 0%);
+  --primary-color-opacity-high: hsl(0, 0%, 15%);
+  --primary-color-opacity-medium: hsl(0, 0%, 30%);
+  --primary-color-opacity-low: hsl(0, 0%, 45%);
+  --secondary-color-opacity-full: hsl(0, 0%, 100%);
+  --secondary-color-opacity-high: hsl(0, 0%, 85%);
+  --secondary-color-opacity-medium: hsl(0, 0%, 70%);
+  --secondary-color-opacity-low: hsl(0, 0%, 55%);
+
+  --Tip_background-color: var(--primary-color-opacity-full);
+  --Comment_background-color: var(--primary-color-opacity-medium);
+}
+
+body {
+  background-color: var(--primary-color-opacity-full);
+  color: var(--secondary-color-opacity-full);
+  transition: background-color .25s, color .25s;
+}
