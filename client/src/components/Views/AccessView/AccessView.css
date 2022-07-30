@@ -5,8 +5,8 @@
   place-items: center;
   row-gap: 10px;
   column-gap: 10px;
-  
-  grid-template-colums: repeat(auto-fit, minmax(min-content, 1fr));
+
+  grid-template-rows: 1fr min-content;
 }
 
 .AccessView form {
@@ -14,27 +14,14 @@
   height: min-content;
 }
 
-.AccessView form:nth-child(1) {
-  margin-top: auto;
+.AccessView__switch_mode_bt span {
+  font-family: var(--primary-font);
+  color: var(--secondary-color-opacity-high);
+  cursor: pointer;
 }
 
-.AccessView form:nth-child(2) {
-  margin-bottom: auto;
+.AccessView__switch_mode_bt span strong {
+  color: var(--brand-color-darker);
 }
 
-@media screen and (min-width: 1024px) {
-  .AccessView form {
-    /* width: max-content; */
-  }
-  .AccessView form:nth-child(1) {
-    grid-area: 1 / 1 / 2 / 2;
-    margin-top: 0;
-    margin-left: auto;
-    margin-bottom: auto;
-  }
-  .AccessView form:nth-child(2) {
-    grid-area: 1 / 2 / 2 / 3;
-    margin-bottom: 0;
-    margin-right: auto;
-  }
-}
+.AccessView__switch_mode_bt input { display: none; }

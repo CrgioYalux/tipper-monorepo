@@ -1,6 +1,6 @@
+import './LogIn.css';
 import { Input } from '../../../Input';
 import { useState } from 'react';
-import './LogIn.css';
 
 export const LogIn = () => {
   const [nickname, setNickname] = useState('');
@@ -31,7 +31,7 @@ export const LogIn = () => {
           onChange: (change) => setPassword(change)
         }}
       />
-      <button type="submit" className="LogIn_create_button">log in</button>
+      <button type="submit" className="LogIn__create_button">log in</button>
     </form>
   )
 }

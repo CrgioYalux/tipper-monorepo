@@ -1,15 +1,14 @@
 .Input__default_class  {
-  --Input__default_font-color: var(--secondary-color);
+  --Input__default_font-color: var(--secondary-color-opacity-full);
 
   width: 100%;
   
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-size: clamp(.9em, 4vw, 1.1em);
-  
-  font-family: var(--primary-font);
 
+  font-family: var(--primary-font);
+  font-size: clamp(.9em, 4vw, 1.1em);
 }
 
 .Input__default_class.--valid-input {

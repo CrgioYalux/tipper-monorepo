@@ -7,24 +7,28 @@
 
   padding: 10px;
 
-  border: 1px solid var(--secondary-color);
+  border: 1px solid var(--secondary-color-opacity-full);
   border-radius: 9px;
 
   font-size: clamp(.85rem, 4vw, 1rem);
-  background-color: var(--primary-color-light);
+  background-color: var(--primary-color-opacity-high);
 }
 
-.LogIn_create_button {
-  font-size: 1rem;
+.LogIn__create_button {
+  font-size: 1em;
   font-family: var(--primary-font);
-  font-weight: 800;
   padding: .2em .4em;
 
-  color: var(--primary-color);
-  background-color: var(--secondary-color);
+  color: white;
+  background-color: var(--brand-color-darker);
 
   border: 0;
   border-radius: 999px;
 
   cursor: pointer;
+}
+
+.LogIn__create_button:focus {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
 }
