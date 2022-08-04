@@ -7,28 +7,37 @@
 
   padding: 10px;
 
-  border: 1px solid var(--secondary-color-opacity-full);
+  border: 2px solid var(--secondary-color-opacity-full);
   border-radius: 9px;
   
   font-size: clamp(.85rem, 4vw, 1rem);
   background-color: var(--primary-color-opacity-high);
+  box-shadow: inset 0 0 2px 1px var(--primary-color-opacity-full);
 }
 
-.SignUp_create_button {
+.SignUp.--invalid-signup {
+  border-color: var(--error-color);
+}
+
+.SignUp__submit_button {
+  width: 80px;
+  height: 30px;
+
   font-size: 1em;
   font-family: var(--primary-font);
-  padding: .2em .4em;
 
   color: white;
   background-color: var(--brand-color-darker);
 
   border: 0;
-  border-radius: 999px;
+  border-radius: 99px;
 
   cursor: pointer;
 }
 
-.SignUp_create_button:focus {
+.SignUp__submit_button:focus {
   outline: 2px solid currentColor;
   outline-offset: 4px;
 }
+
+.SignUp__submit_button:disabled { cursor: default; }

@@ -7,28 +7,37 @@
 
   padding: 10px;
 
-  border: 1px solid var(--secondary-color-opacity-full);
+  border: 2px solid var(--secondary-color-opacity-full);
   border-radius: 9px;
 
   font-size: clamp(.85rem, 4vw, 1rem);
   background-color: var(--primary-color-opacity-high);
+  box-shadow: inset 0 0 2px 1px var(--primary-color-opacity-full);
 }
 
-.LogIn__create_button {
+.LogIn.--invalid-login {
+  border-color: var(--error-color);
+}
+
+.LogIn__submit_button {
+  width: 80px;
+  height: 30px;
+
   font-size: 1em;
   font-family: var(--primary-font);
-  padding: .2em .4em;
 
   color: white;
   background-color: var(--brand-color-darker);
 
   border: 0;
-  border-radius: 999px;
+  border-radius: 99px;
 
   cursor: pointer;
 }
 
-.LogIn__create_button:focus {
+.LogIn__submit_button:focus {
   outline: 2px solid currentColor;
   outline-offset: 4px;
 }
+
+.LogIn__submit_button:disabled { cursor: default; }

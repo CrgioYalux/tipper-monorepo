@@ -1,51 +1,3 @@
-// COMMENTS
-const comment1 = {
-  nickname: 'font_roboto',
-  fullname: 'Mr. Robot',
-  body: 'ratio',
-  created: new Date(),
-  likes: '1K',
-  dislikes: 1,
-  comments: 3,
-  tip_id: 1,
-  comment_of_tip_id: 1
-}
-
-const comment2 = {
-  nickname: 'tyrwellick',
-  fullname: 'Tyrell Wellick',
-  body: 'bonsoir Elliot',
-  created: new Date(),
-  likes: 2,
-  dislikes: 1,
-  comments: 0,
-  tip_id: 2,
-  comment_of_tip_id: 1
-}
-
-const comment3 = {
-  nickname: 'angymoss',
-  fullname: 'Angela Moss',
-  body: '!!!!!!!!!!!!!!',
-  created: new Date(),
-  likes: 2,
-  dislikes: 1,
-  comments: 0,
-  tip_id: 3,
-  comment_of_tip_id: 1
-}
-
-const comment4 = {
-  nickname: 'angymoss',
-  fullname: 'Angela Moss',
-  body: '???????????????????',
-  created: new Date(),
-  likes: 5,
-  dislikes: 1,
-  comments: 0,
-  tip_id: 4,
-  comment_of_tip_id: 1 
-}
 
 // just a numeric id is not enough for linking a tip with its comments
 // so, this prop, could maybe me something like 
@@ -72,27 +24,3 @@ const comment4 = {
 // but this is important, cuz this is how things are going to work
 
 // TIPS
-const tip1 = {
-  nickname: 'elli0t4nd3rs0n',
-  fullname: 'Elliot Anderson',
-  body: 'mr robot finally gone',
-  created: new Date(),
-  likes: 10,
-  dislikes: 1,
-  comments: 2,
-  tip_id: 1
-}
-
-const tip2 = {
-  nickname: 'angymoss',
-  fullname: 'Angela Moss',
-  body: 'elliot is weird',
-  created: new Date(),
-  likes: 0,
-  dislikes: 99,
-  comments: 2,
-  tip_id: 2
-}
-
-export const comments = [comment1, comment2, comment3, comment4];
-export const tips = [tip1, tip2];

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useView } from '../../providers/ViewProvider';
+import { useClient } from '../../providers/ClientProvider';
 import './Tip.css';
 import './Comment.css';
 
@@ -15,7 +15,7 @@ export const Tip = ({
   is_comment
 }) => {
   const [interactionSelected, setInteractionSelected] = useState("");
-  const { selectTip } = useView();
+  const { selectTip } = useClient();
   const id = is_comment ? `tip_comment_${tip_id}` : tip_id;
 
   const handleClickOnTip = (e) => {
@@ -65,7 +65,10 @@ export const Tip = ({
   };
 
   return (
-    <div className={`Tip ${is_comment ? "_is_comment" : "_is_not_comment"}`} onClick={handleClickOnTip}>  
+    <div
+      className={`Tip ${is_comment ? "_is_comment" : "_is_not_comment"}`}
+      onClick={handleClickOnTip}
+    >  
       <div className="Tip__Client_info">
         <span className="Tip__Client_fullname">{fullname}</span>
         <b>•</b>

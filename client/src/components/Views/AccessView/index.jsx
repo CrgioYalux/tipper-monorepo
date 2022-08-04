@@ -4,7 +4,7 @@ import { LogIn } from './LogIn';
 import { SignUp } from './SignUp';
 
 export const AccessView = () => {
-  const [accessMode, setAccessMode] = useState(false);
+  const [accessMode, setAccessMode] = useState(true);
 
   return (
     <div className="AccessView">
@@ -16,7 +16,7 @@ export const AccessView = () => {
           name='SwitchAccessMode'
           id='SwitchAccessMode'
           checked={accessMode}
-          onChange={() => setAccessMode(prev => !prev)}
+          onChange={() => setAccessMode((prev) => !prev)}
         />
       </label>
     </div>

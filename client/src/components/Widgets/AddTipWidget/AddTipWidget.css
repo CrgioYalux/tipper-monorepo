@@ -1,0 +1,23 @@
+.AddTipWidget {
+  display: grid;
+  place-items: center;
+
+  margin: 0;
+  padding: 5px;
+
+  border: 0;
+  outline: 0;
+
+  cursor: pointer;
+}
+
+.AddTipWidget_icon {
+  max-width: 100%;
+  aspect-ratio: 1;
+
+  fill: var(--secondary-color-opacity-full);
+}
+
+.AddTipWidget:focus {
+  outline: 1px solid var(--secondary-color-opacity-full);
+}

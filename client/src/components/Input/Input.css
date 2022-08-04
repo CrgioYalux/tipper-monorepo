@@ -7,7 +7,6 @@
   flex-direction: column;
   justify-content: center;
 
-  font-family: var(--primary-font);
   font-size: clamp(.9em, 4vw, 1.1em);
 }
 
@@ -23,6 +22,7 @@
 .Input_field__default_class,
 .Input_label__default_class,
 .Input_rule_message__default_class {
+  font-family: var(--primary-font);
   color: var(--Input__default_font-color);
   transition: color .4s;
 }
@@ -35,20 +35,20 @@
   align-items: center;
 }
 
-.Input_label__default_class {
-  font-weight: bold;
-}
-
 .Input_field__default_class {
   flex: 0 0 65%;
   margin-left: auto;
 
-  border: 1px solid currentColor;
+  border: 0;
   border-radius: 9px;
-  background-color: transparent;
+  background-color: var(--primary-color-opacity-medium);
 
   font-size: 1em;
   text-align: center;
+}
+
+.Input_field__default_class:focus {
+  outline: 1px solid currentColor;
 }
 
 .Input_rule_messages__default_class {
@@ -58,6 +58,7 @@
   flex-direction: column;
   align-items: center;
   gap: 5px;
+  line-height: 1.2;
   font-size: .75em;
 }
 

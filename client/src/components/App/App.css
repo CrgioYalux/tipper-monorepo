@@ -4,35 +4,3 @@
   display: grid;
   place-items: center;
 }
-
-.Tips_container {
-  justify-self: end;
-  width: 100vw;
-}
-
-@media screen and (min-width: 1024px) {
-  .Tips_container {
-    width: 80vw;
-  }
-}
-
-.App > button {
-  position: fixed;
-  bottom: 5%;
-  left: 5%;
-
-  color: var(--brand-color-darker);
-  background-color: transparent;
-
-  font-family: var(--secondary-font);
-
-  border: 1px solid currentColor;
-  border-radius: 3px;
-
-  cursor: pointer;
-}
-
-.App > button:focus {
-  outline-offset: 4px;
-  outline: 1px solid currentColor;
-}

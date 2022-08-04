@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
+import { mock_comments } from '../../../mockdata/comments';
 import { Tip } from '../../Tip';
-import { comments as mock_comments } from '../../Tip/mock_data.js';
 import './TipView.css';
 
 export const TipView = ({

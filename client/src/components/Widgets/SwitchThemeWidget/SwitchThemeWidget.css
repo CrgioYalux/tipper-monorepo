@@ -1,0 +1,21 @@
+.SwitchThemeWidget {
+  height: min-content;
+  width: max-content;
+
+  font-size: 1em;
+  padding: .2em .8em;
+  font-family: var(--primary-font);
+  color: var(--secondary-color-opacity-full);
+
+  background-color: var(--primary-color-opacity-medium);
+  
+  border: 0;
+  border-radius: 9px;
+
+  cursor: pointer;
+  user-select: none;
+}
+
+.SwitchThemeWidget:focus {
+  outline: 0;
+}

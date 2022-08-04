@@ -1,27 +1,36 @@
 .AccessView {
-  width: max-content;
+  width: 90vw;
+  max-width: 450px;
   height: max-content;
-  display: grid;
-  place-items: center;
-  row-gap: 10px;
-  column-gap: 10px;
-
-  grid-template-rows: 1fr min-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
 
 .AccessView form {
-  width: min-content;
+  width: 100%;
   height: min-content;
 }
 
 .AccessView__switch_mode_bt span {
+  font-size: 1.2em;
   font-family: var(--primary-font);
-  color: var(--secondary-color-opacity-high);
-  cursor: pointer;
+  color: var(--secondary-color-opacity-full);
 }
 
 .AccessView__switch_mode_bt span strong {
+  font-family: var(--primary-font);
+  font-size: 1em;
+
   color: var(--brand-color-darker);
+
+  cursor: pointer;
 }
 
+
+.LogIn__create_button:focus {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
 .AccessView__switch_mode_bt input { display: none; }

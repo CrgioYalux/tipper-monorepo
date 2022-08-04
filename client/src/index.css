@@ -58,9 +58,9 @@ table {
   /* Fonts */
   --primary-font: 'Montserrat', sans-serif;
   --secondary-font: 'Roboto', sans-serif;
-
+ 
   /* Colors */
-  --brand-color-hue: 250;
+  --brand-color-hue: 210;
 
   --brand-color-lightest: hsl(var(--brand-color-hue), 50%, 80%);
   --brand-color-lighter: hsl(var(--brand-color-hue), 50%, 70%);
@@ -89,13 +89,13 @@ table {
 
 :root, :root.light {
   --primary-color-opacity-full: hsl(0, 0%, 100%);
-  --primary-color-opacity-high: hsl(0, 0%, 90%);
-  --primary-color-opacity-medium: hsl(0, 0%, 80%);
-  --primary-color-opacity-low: hsl(0, 0%, 70%);
+  --primary-color-opacity-high: hsl(0, 0%, 85%);
+  --primary-color-opacity-medium: hsl(0, 0%, 70%);
+  --primary-color-opacity-low: hsl(0, 0%, 55%);
   --secondary-color-opacity-full: hsl(0, 0%, 0%);
-  --secondary-color-opacity-high: hsl(0, 0%, 10%);
-  --secondary-color-opacity-medium: hsl(0, 0%, 20%);
-  --secondary-color-opacity-low: hsl(0, 0%, 30%);
+  --secondary-color-opacity-high: hsl(0, 0%, 15%);
+  --secondary-color-opacity-medium: hsl(0, 0%, 30%);
+  --secondary-color-opacity-low: hsl(0, 0%, 45%);
 
   --Tip_background-color: var(--primary-color-opacity-high);
   --Comment_background-color: var(--primary-color-opacity-medium);
@@ -104,13 +104,13 @@ table {
 @media (prefers-color-scheme: dark) {
   :root {
   --primary-color-opacity-full: hsl(0, 0%, 0%);
-  --primary-color-opacity-high: hsl(0, 0%, 10%);
-  --primary-color-opacity-medium: hsl(0, 0%, 20%);
-  --primary-color-opacity-low: hsl(0, 0%, 30%);
+  --primary-color-opacity-high: hsl(0, 0%, 15%);
+  --primary-color-opacity-medium: hsl(0, 0%, 30%);
+  --primary-color-opacity-low: hsl(0, 0%, 45%);
   --secondary-color-opacity-full: hsl(0, 0%, 100%);
-  --secondary-color-opacity-high: hsl(0, 0%, 90%);
-  --secondary-color-opacity-medium: hsl(0, 0%, 80%);
-  --secondary-color-opacity-low: hsl(0, 0%, 70%);
+  --secondary-color-opacity-high: hsl(0, 0%, 85%);
+  --secondary-color-opacity-medium: hsl(0, 0%, 70%);
+  --secondary-color-opacity-low: hsl(0, 0%, 55%);
 
   --Tip_background-color: var(--primary-color-opacity-high);
   --Comment_background-color: var(--primary-color-opacity-medium);
@@ -119,13 +119,13 @@ table {
 
 :root.dark {
   --primary-color-opacity-full: hsl(0, 0%, 0%);
-  --primary-color-opacity-high: hsl(0, 0%, 10%);
-  --primary-color-opacity-medium: hsl(0, 0%, 20%);
-  --primary-color-opacity-low: hsl(0, 0%, 30%);
+  --primary-color-opacity-high: hsl(0, 0%, 15%);
+  --primary-color-opacity-medium: hsl(0, 0%, 30%);
+  --primary-color-opacity-low: hsl(0, 0%, 45%);
   --secondary-color-opacity-full: hsl(0, 0%, 100%);
-  --secondary-color-opacity-high: hsl(0, 0%, 90%);
-  --secondary-color-opacity-medium: hsl(0, 0%, 80%);
-  --secondary-color-opacity-low: hsl(0, 0%, 70%);
+  --secondary-color-opacity-high: hsl(0, 0%, 85%);
+  --secondary-color-opacity-medium: hsl(0, 0%, 70%);
+  --secondary-color-opacity-low: hsl(0, 0%, 55%);
 
   --Tip_background-color: var(--primary-color-opacity-high);
   --Comment_background-color: var(--primary-color-opacity-medium);

@@ -1,41 +1,21 @@
-import { useContext, createContext, useState, useEffect } from 'react';
+import { useContext, createContext, useState } from 'react';
 
-export const VIEWS = {
-  HOME: "HOME",
-  ACCESS: "ACCESS",
-  TIP: "TIP",
-};
-
-const ViewContext = createContext(VIEWS.HOME);
+const ViewContext = createContext("");
 
 export const useView = () => useContext(ViewContext);
 
-export const ViewProvider = ({ children }) => {
-  const [currentView, setCurrentView] = useState(VIEWS.HOME);
-  const [selectedTip, setSelectedTip] = useState(null);
-
-  const selectTip = (tip) => {
-    if (
-      (selectedTip === null) ||
-      (selectedTip.tip_id !== tip.tip_id)
-    ) {
-      setSelectedTip(tip);
-      setCurrentView(VIEWS.TIP);
-    }
-  }
-
-  const goToHome = () => {
-    setSelectedTip(null);
-    setCurrentView(VIEWS.HOME);
-  }
+export const ViewProvider = ({ children, views, defaultView }) => {
+  const [currentView, setCurrentView] = useState(defaultView);
+  
+  const goToView = (view) => {
+    if ([...Object.values(views)].find((v) => v === view)) setCurrentView(view);
+  };
 
   const value = {
-    selectedTip,
-    selectTip,
+    views,
     currentView,
-    selectView: setCurrentView,
-    goToHome
-  }
+    goToView 
+  };
 
   return (
     <ViewContext.Provider value={value}>{children}</ViewContext.Provider>
