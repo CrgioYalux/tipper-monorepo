@@ -1,5 +1,6 @@
 /* IMPORTS */
-@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
 
 /* RESET */
 
@@ -60,7 +61,7 @@ table {
   --secondary-font: 'Roboto', sans-serif;
  
   /* Colors */
-  --brand-color-hue: 210;
+  --brand-color-hue: 260;
 
   --brand-color-lightest: hsl(var(--brand-color-hue), 50%, 80%);
   --brand-color-lighter: hsl(var(--brand-color-hue), 50%, 70%);
@@ -70,12 +71,12 @@ table {
   --brand-color-darker: hsl(var(--brand-color-hue), 50%, 30%);
   --brand-color-darkest: hsl(var(--brand-color-hue), 50%, 20%);
 
-  --comment-color: var(--brand-color);
+  --comment-color: var(--brand-color-light);
   --dislike-color: hsl(0, 50%, 50%);
   --like-color: hsl(150, 50%, 50%);
 
-  --error-color: hsl(10, 50%, 50%);
-  --success-color: hsl(140, 50%, 50%);
+  --error-color: hsl(10, 60%, 50%);
+  --success-color: hsl(140, 60%, 50%);
 
   /* COLOR SCHEME */
   color-scheme: light dark;
@@ -132,7 +133,11 @@ table {
 }
 
 body {
+  font-family: var(--primary-font);
+  font-weight: 400;
+
   background-color: var(--primary-color-opacity-full);
   color: var(--secondary-color-opacity-full);
+
   transition: background-color .25s, color .25s;
 }
