@@ -1,7 +1,10 @@
-import { useState, useEffect } from 'react';
-import { useClient } from '../../providers/ClientProvider';
 import './Tip.css';
 import './Comment.css';
+import { useState } from 'react';
+import { useClient } from '../../providers/ClientProvider';
+import { ArrowUpIcon } from '../Icons/ArrowUpIcon';
+import { ArrowDownIcon } from '../Icons/ArrowDownIcon';
+import { EllipsisIcon } from '../Icons/EllipsisIcon';
 
 export const Tip = ({
   nickname,
@@ -68,18 +71,18 @@ export const Tip = ({
     <div
       className={`Tip ${is_comment ? "_is_comment" : "_is_not_comment"}`}
       onClick={handleClickOnTip}
-    >  
+    >
       <div className="Tip__Client_info">
-        <span className="Tip__Client_fullname">{fullname}</span>
+        <span>{fullname}</span>
         <b>•</b>
-        <small className="Tip__Client_nickname">@{nickname}</small>
-        <small className="Tip__Client_created">{created.toDateString()}</small>
+        <a href={`/${nickname}`}>@{nickname}</a>
+        <small>{created.toDateString()}</small>
       </div>
       <div className="Tip__Content">
         <p>{body}</p>
       </div>
       <form className="Tip__Interaction">
-        <div className="Interaction_like" >
+        <div className="Interaction_like">
           <label htmlFor={`Interaction_like_${id}`} data-unclickable={true}>
             <input
               type="radio"
@@ -90,11 +93,14 @@ export const Tip = ({
               onChange={handleCheck}
               data-unclickable={true}
             />
-            <b data-unclickable={true}>↑</b>
+            <ArrowUpIcon 
+              className="Interaction_like_icon"
+              data-unclickable={true}
+            />
             <span data-unclickable={true}>{likes}</span>
           </label>
         </div>
-        <div className="Interaction_dislike" >
+        <div className="Interaction_dislike">
           <label htmlFor={`Interaction_dislike_${id}`} data-unclickable={true}>
             <input
               type="radio"
@@ -105,7 +111,10 @@ export const Tip = ({
               onChange={handleCheck}
               data-unclickable={true}
             />
-            <b data-unclickable={true}>↓</b>
+            <ArrowDownIcon
+              className="Interaction_dislike_icon"
+              data-unclickable={true}
+            />
             <span data-unclickable={true}>{dislikes}</span>
           </label>
         </div>
@@ -120,8 +129,11 @@ export const Tip = ({
               onChange={handleCheck}
               data-unclickable={true}
             />
+            <EllipsisIcon
+              className="Interaction_comment_icon"
+              data-unclickable={true}
+            />
             <span data-unclickable={true}>{comments}</span>
-            <b data-unclickable={true}>•••</b>
           </label>
         </div>
      </form>

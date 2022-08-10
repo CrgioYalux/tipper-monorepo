@@ -11,10 +11,9 @@
   justify-content: center;
   gap: 5px;
 
-  color: var(--brand-color-lightest);
   color: var(--secondary-color-opacity-high);
   font-family: var(--primary-font);
-  font-size: clamp(.8rem, 4vw, 1.4rem);
+  font-size: clamp(.8rem, 4vw, 1.2rem);
 
   border-radius: var(--Tip_border-radius);
 
@@ -30,58 +29,84 @@
 .Tip__Client_info {
   height: 100%;
   width: 100%;
+
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
+.Tip__Client_info span,
+.Tip__Client_info b,
+.Tip__Client_info > a:visited,
+.Tip__Client_info > a:not(:visited) {
+  color: var(--secondary-color-opacity-full);
+}
+
+.Tip__Client_info span {
+  margin-left: var(--Tip_margin);
+  font-weight: 500;
+}
+
 .Tip__Client_info b {
   margin: 0 5px;
-  font-weight: bold;
+
   font-size: 1em;
+  font-weight: 700;
 }
 
-.Tip__Client_info > small {
-  font-size: .7em;
-  opacity: .9;
+.Tip__Client_info > small, 
+.Tip__Client_info > a {
+  font-size: .65em;
+  font-weight: 300;
 }
 
-.Tip__Client_info .Tip__Client_fullname { 
-  font-weight: bold;
-  margin-left: var(--Tip_margin);
-}
-
-.Tip__Client_info .Tip__Client_nickname {
-  cursor: pointer;
+.Tip__Client_info > a {
   max-width: 20ch;
+
+  margin-right: var(--Tip_margin);
+
+  cursor: pointer;
+
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+
+  text-decoration: none;
 }
 
-.Tip__Client_info .Tip__Client_created {
-  text-transform: lowercase;
+.Tip__Client_info small {
   margin-left: auto;
   margin-right: var(--Tip_margin);
+
+  text-transform: lowercase;
 }
 
 /* Tip Content */
 .Tip__Content {
   width: 95%;
+
   align-self: center;
   overflow-wrap: break-word;
   word-break: break-all;
+
+  font-size: 1em;
+  font-weight: 400;
 }
 
 /* Tip Interactions */
 .Tip__Interaction input { display: none; }
 
 .Tip__Interaction {
+  margin-top: 5px;
+
   width: 100%;
   height: 100%;
+
   display: flex;
   flex-direction: row;
-  font-size: .9em;
+
+  font-size: .8em;
+  font-weight: 500;
 }
 
 .Tip__Interaction > div {
@@ -92,30 +117,31 @@
 }
 
 .Tip__Interaction > div > label {
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  cursor: pointer;
-  gap: 3px;
   user-select: none;
+  cursor: pointer;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 2px;
 }
 
-.Tip__Interaction > .Interaction_like > label.Interaction--selected { color: var(--like-color); }
-.Tip__Interaction > .Interaction_dislike > label.Interaction--selected { color: var(--dislike-color); }
-.Tip__Interaction > .Interaction_comment > label.Interaction--selected { color: var(--comment-color); }
-
-.Tip__Interaction > div > label > b {
-  position: relative;
-  top: 55%;
-  transform: translate(0%, -50%);
-  font-family: monospace;
-  font-weight: bold;
-  align-self: flex-start;
+.Interaction_like_icon,
+.Interaction_dislike_icon,
+.Interaction_comment_icon {
+  width: .7em;
+  aspect-ratio: 1;
+  fill: currentColor;
 }
 
-.Tip__Interaction > .Interaction_comment > label > b {
-  font-size: .8em;
-  font-family: sans-serif;
-  letter-spacing: 1px;
+.Tip__Interaction > .Interaction_like > label.Interaction--selected {
+  color: var(--like-color);
+  fill: var(--like-color);
 }
-
+.Tip__Interaction > .Interaction_dislike > label.Interaction--selected {
+  color: var(--dislike-color);
+  fill: var(--dislike-color);
+}
+.Tip__Interaction > .Interaction_comment > label.Interaction--selected {
+  color: var(--comment-color);
+  fill: var(--comment-color);
+}
