@@ -15,14 +15,13 @@
 
 .AccessView__switch_mode_bt span {
   font-size: 1.2em;
+  font-weight: 400;
   font-family: var(--primary-font);
   color: var(--secondary-color-opacity-full);
 }
 
 .AccessView__switch_mode_bt span strong {
-  font-family: var(--primary-font);
-  font-size: 1em;
-
+  font-weight: 700;
   color: var(--brand-color-darker);
 
   cursor: pointer;

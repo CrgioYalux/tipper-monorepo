@@ -4,6 +4,7 @@ import { ProfileIcon } from '../../Icons/ProfileIcon';
 
 export const ProfileWidget = ({ className = '' }) => {
   const { views, goToView } = useView();
+
 	return (
 		<button
       onClick={() => goToView(views.Profile)}
