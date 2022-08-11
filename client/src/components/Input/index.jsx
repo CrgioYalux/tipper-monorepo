@@ -1,5 +1,5 @@
-import { useState, useEffect, useMemo } from 'react';
 import './Input.css';
+import { useState, useCallback } from 'react';
 
 export const Input = (props) => {
   const {
@@ -13,7 +13,8 @@ export const Input = (props) => {
     type = "text",
     name = "InputText",
     autoFocus = false,
-    required = true
+    required = true,
+    noLabel = false 
   } = props;
 
   const {
@@ -31,32 +32,32 @@ export const Input = (props) => {
 
   const [validityClassName, setValidityClassName] = useState('');
 
-  const handleInputValidity = (rule, inputElement, invalidInputMsg = "Invalid input") => {
-    if (inputElement.value !== '' && !!rule) {
-      const isValid = rule.test(inputElement.value);
-      if (isValid) {
-        setValidityClassName('--valid-input');
-        inputElement.setCustomValidity("");
-      }
-      else {
-        setValidityClassName('--invalid-input');
-        inputElement.setCustomValidity(invalidInputMsg);
-      }
-    }
-    else setValidityClassName();
-  }
+  const handleInputValidity = useCallback(
+    (inputElement, invalidInputMsg = "Invalid input") => {
+      if (inputElement.value.length !== 0 && !!rule) {
+        const isValid = rule.test(inputElement.value);
+        if (isValid) {
+          setValidityClassName('--valid-input');
+          inputElement.setCustomValidity('');
+        }
+        else {
+          setValidityClassName('--invalid-input');
+          inputElement.setCustomValidity(invalidInputMsg);
+        }
+      } else setValidityClassName('');
+    },
+    [rule]
+  );
 
   const handleChange = (event) => {
-    const change = event.target.value;
-    onChange(change);
-
-    handleInputValidity(rule, event.target);
-  }
+    onChange(event.target.value);
+    handleInputValidity(event.target);
+  };
 
   return (
     <label className={`Input__default_class ${containerClassName} ${validityClassName}`} htmlFor={name}>
       <div>
-        <span className={`Input_label__default_class ${labelClassName} ${validityClassName}`}>{label}</span>
+        {!noLabel && <span className={`Input_label__default_class ${labelClassName} ${validityClassName}`}>{label}</span>}
         <input
           className={`Input_field__default_class ${inputClassName} ${validityClassName}`}
           type={type}
