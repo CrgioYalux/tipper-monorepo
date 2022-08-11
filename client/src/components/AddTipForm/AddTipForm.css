@@ -1,0 +1,82 @@
+.AddTipForm {
+  position: relative;
+
+  margin: 0;
+  padding: 0;
+
+  display: grid;
+  place-items: center;
+
+  font-size: clamp(0.8em, 4vw, 1em);
+
+  --AddTipForm-spacing: 1.2em;
+}
+
+.AddTipForm.--invalid-input .AddTipForm_word_counter {
+  color: var(--error-color);
+}
+
+.AddTipForm button.AddTipForm_cancel_bt,
+.AddTipForm button.AddTipForm_submit_bt {
+  position: absolute;
+  left: calc(100% + var(--AddTipForm-spacing));
+
+  background-color: transparent;
+
+  border: 0;
+  outline: 0;
+  margin: 0;
+  padding: 0;
+
+  border-radius: 50%;
+
+  cursor: pointer;
+}
+
+.AddTipForm button.AddTipForm_cancel_bt { top: 0; }
+.AddTipForm button.AddTipForm_submit_bt { bottom: 0; }
+
+.AddTipForm button.AddTipForm_submit_bt:disabled {
+  cursor: default;
+  opacity: .4;
+}
+
+.AddTipForm_cancel_icon,
+.AddTipForm_submit_icon {
+  width: 2em;
+  aspect-ratio: 1;
+  fill: var(--secondary-color-opacity-full);
+}
+
+.AddTipForm_word_counter {
+  position: absolute;
+  top: calc(100% + var(--AddTipForm-spacing));
+  right: 0;
+
+  font-family: var(--secondary-font);
+  font-size: .8em;
+  font-weight: 500;
+}
+
+.AddTipForm_input {
+  resize: none;
+
+  width: 100%;
+  height: 100%;
+
+  font-family: var(--primary-font);
+  font-size: 1em;
+  font-weight: 400;
+  color: var(--secondary-color-opacity-full);
+
+  background-color: var(--primary-color-opacity-medium);
+
+  border: 0;
+  outline: 0;
+  margin: 0;
+  padding: .4em;
+  
+  box-sizing: border-box;
+
+  border-radius: 6px;
+}
