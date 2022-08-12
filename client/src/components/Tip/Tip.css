@@ -1,6 +1,5 @@
 /* Component Container */
 .Tip {
-  --Tip_border-radius: 9px;
   --Tip_margin: 10px;
 
   width: 100%;
@@ -15,11 +14,11 @@
   font-family: var(--primary-font);
   font-size: clamp(.8rem, 4vw, 1.2rem);
 
-  border-radius: var(--Tip_border-radius);
+  border-radius: 9px;
 
   box-sizing: border-box;
 
-  background-color: var(--Tip_background-color);
+  background-color: var(--primary-color-opacity-high);
 
   padding: 5px 0;
   cursor: pointer;
@@ -44,6 +43,7 @@
 
 .Tip__Client_info span {
   margin-left: var(--Tip_margin);
+  font-size: 1em;
   font-weight: 500;
 }
 
@@ -57,7 +57,7 @@
 .Tip__Client_info > small, 
 .Tip__Client_info > a {
   font-size: .65em;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .Tip__Client_info > a {
@@ -110,7 +110,7 @@
 }
 
 .Tip__Interaction > div {
-  flex: 0 0 15%;
+  flex: 0 0 10%;
   max-width: 100px;
   display: grid;
   place-items: center;
@@ -129,6 +129,7 @@
 .Interaction_dislike_icon,
 .Interaction_comment_icon {
   width: .7em;
+  height: 100%;
   aspect-ratio: 1;
   fill: currentColor;
 }

@@ -95,7 +95,7 @@ export const Tip = ({
             />
             <ArrowUpIcon 
               className="Interaction_like_icon"
-              data-unclickable={true}
+              data_unclickable={true}
             />
             <span data-unclickable={true}>{likes}</span>
           </label>
@@ -113,7 +113,7 @@ export const Tip = ({
             />
             <ArrowDownIcon
               className="Interaction_dislike_icon"
-              data-unclickable={true}
+              data_unclickable={true}
             />
             <span data-unclickable={true}>{dislikes}</span>
           </label>
@@ -131,7 +131,7 @@ export const Tip = ({
             />
             <EllipsisIcon
               className="Interaction_comment_icon"
-              data-unclickable={true}
+              data_unclickable={true}
             />
             <span data-unclickable={true}>{comments}</span>
           </label>
