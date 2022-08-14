@@ -1,4 +1,6 @@
-import { useState, useContext, createContext } from "react";
+import { useState, useEffect, useContext, createContext } from "react";
+import { useView } from "../ViewProvider";
+import { VIEWS } from '../../components/Views';
 
 const ClientContext = createContext({
   logged: false,
@@ -11,8 +13,15 @@ const ClientContext = createContext({
 export const useClient = () => useContext(ClientContext);
 
 export const ClientProvider = ({ children }) => {
-  const [logged, setLogged] = useState(false);
+  const [logged, setLogged] = useState(true);
   const [selectedTip, setSelectedTip] = useState(null);
+  const { goToView } = useView();
+
+  useEffect(() => {
+    if (selectedTip !== null) {
+      goToView(VIEWS.TIP);
+    }
+  }, [selectedTip]);
 
   const value = {
     logged,

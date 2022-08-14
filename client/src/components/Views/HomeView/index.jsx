@@ -1,18 +1,11 @@
-import { Tip } from '../../Tip';
-import { useView } from '../../../providers/ViewProvider';
 import './HomeView.css';
+import { useView } from '../../../providers/ViewProvider';
+import { TipList } from '../../TipList';
 
 export const HomeView = ({ tips }) => {
   return (
-      <div className="HomeView">
-        {
-          tips.map((tip) => (
-            <Tip
-              key={tip.tip_id}
-              {...tip}
-            />
-          ))
-        }
-      </div>
+    <div className='HomeView'>
+      <TipList tips={tips} />
+    </div>
   );
 };

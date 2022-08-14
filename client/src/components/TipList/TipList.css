@@ -1,0 +1,44 @@
+.TipList.--not-for-comments {
+  width: 95%;
+  max-width: 650px;
+  
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.TipList.--for-comments {
+  --TipList-linking-size: 5px;
+  --TipList-linking-color: white;
+  --TipList-comment-spacing: 5px;
+  --TipList-comment-indent: 10%;
+
+  position: relative;
+
+  padding-left: var(--TipList-comment-indent);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--TipList-comment-spacing);
+}
+
+.TipList.--for-comments::before {
+  content: "";
+
+  position: absolute;
+
+  width: var(--TipList-linking-size);
+  height: calc(100% - (((100% - ((var(--cant-comments) - 1) * var(--TipList-comment-spacing))) / var(--cant-comments))) / 2 + var(--TipList-comment-spacing)); 
+
+  top: calc(var(--TipList-comment-spacing) * (-1));
+  left: calc((var(--TipList-comment-indent) / 2) + var(--TipList-linking-size));
+
+  background-color: var(--TipList-linking-color);
+}
+
+.TipList_Tip__vars {
+  --Comment-linking-size: var(--TipList-linking-size) !important;
+  --Comment-linking-color: var(--TipList-linking-color) !important;
+  --Comment-spacing: var(--TipList-comment-spacing) !important;
+  --Comment-indent: var(--TipList-comment-spacing) !important;
+}

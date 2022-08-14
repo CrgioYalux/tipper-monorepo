@@ -15,7 +15,8 @@ export const Tip = ({
   dislikes,
   comments,
   tip_id,
-  is_comment
+  is_comment,
+  vars_class_name = ''
 }) => {
   const [interactionSelected, setInteractionSelected] = useState("");
   const { selectTip } = useClient();
@@ -69,7 +70,7 @@ export const Tip = ({
 
   return (
     <div
-      className={`Tip ${is_comment ? "_is_comment" : "_is_not_comment"}`}
+      className={`Tip ${is_comment ? "_is_comment" : "_is_not_comment"} ${vars_class_name}`}
       onClick={handleClickOnTip}
     >
       <div className="Tip__Client_info">

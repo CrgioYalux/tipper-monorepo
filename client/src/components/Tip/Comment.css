@@ -1,23 +1,30 @@
 .Tip._is_comment {
+  --Comment-linking-size: 5px;
+  --Comment-linking-color: white;
+  --Comment-spacing: 5px;
+  --Comment-indent: 10%;
+
   position: relative;
+
   width: 100%;
+
   margin-left: auto;
   
   box-sizing: border-box;
   background-color: var(--primary-color-opacity-high);
 
-  border-left: var(--pseudo-size) solid var(--pseudo-background-color);
+  border-left: var(--Comment-linking-size) solid var(--Comment-linking-color);
 }
 
 .Tip._is_comment::after {
   content: "";
   position: absolute;
 
-  width: calc(5% - var(--pseudo-size));
-  height: var(--pseudo-size);
+  width: calc(5% - var(--Comment-linking-size));
+  height: var(--Comment-linking-size);
 
-  top: calc(50% - var(--pseudo-size));
+  top: calc(50% - var(--Comment-linking-size));
   left: -5%;
 
-  background-color: var(--pseudo-background-color);
+  background-color: var(--Comment-linking-color);
 }

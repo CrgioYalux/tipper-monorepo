@@ -1,35 +1,29 @@
 .TipView {
-  --pseudo-size: clamp(2px, .5vw, 6px);
-  --pseudo-background-color: var(--brand-color-dark);
-  --Comment-spacing: 5px;
+  width: 100%;
+  height: 100%;
 
-  padding-right: 10px;
-  padding-left: 10px;
-}
-
-.TipView > div.Tip {
-  border-bottom: var(--pseudo-size) solid var(--pseudo-background-color);
-  margin-bottom: 5px;
-}
-
-.TipView > div.Tip_Comments.--has-comments {
-  position: relative;
-  padding-left: 10%;
   display: flex;
   flex-direction: column;
-  gap: var(--Comment-spacing);
+  justify-content: center;
+  align-items: center;
 }
 
-.TipView > div.Tip_Comments.--has-comments::before {
-  content: "";
-  position: absolute;
+.TipView_content {
+  width: 95%;
+  max-width: 650px;
 
-  width: var(--pseudo-size);
-  height: calc(100% - (((100% - ((var(--cant-comments) - 1) * var(--Comment-spacing))) / var(--cant-comments))) / 2 + var(--Comment-spacing)); 
-
-  top: calc(var(--Comment-spacing) * (-1));
-  left: calc(5% + var(--pseudo-size));
-
-  background-color: var(--pseudo-background-color);
+  --linking-size: clamp(3px, .5vw, 5px);
+  --linking-color: var(--brand-color-dark);
+  --comment-spacing: 5px;
 }
 
+.TipView_content > div.Tip {
+  border-bottom: var(--linking-size) solid var(--linking-color);
+  margin-bottom: var(--comment-spacing);
+}
+
+.TipView_TipList__vars {
+  --TipList-linking-size: var(--linking-size) !important;
+  --TipList-linking-color: var(--linking-color) !important;
+  --TipList-comment-spacing: var(--comment-spacing) !important;
+}

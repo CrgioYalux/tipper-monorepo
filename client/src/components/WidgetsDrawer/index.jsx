@@ -19,7 +19,7 @@ export const WidgetsDrawer = () => {
 
 	return (
 		<label htmlFor='WidgetsDrawer_bt' className='WidgetsDrawer'>
-      <input type='checkbox' id='WidgetsDrawer_bt' name='WidgetsDrawer_bt' defaultChecked={true} />
+      <input type='checkbox' id='WidgetsDrawer_bt' name='WidgetsDrawer_bt' defaultChecked={false} />
       <span className='WidgetsDrawer_bt'>Menu</span>
       <div className='WidgetsDrawer_content'>
         {

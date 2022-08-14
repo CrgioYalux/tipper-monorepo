@@ -4,6 +4,7 @@ export const VIEWS = {
   CREATE: "CREATE",
   PROFILE: "PROFILE",
   ACCESS: "ACCESS",
+  TIP: "TIP"
 };
 
 
