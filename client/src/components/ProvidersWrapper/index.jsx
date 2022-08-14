@@ -9,13 +9,13 @@ const queryClient = new QueryClient();
 export const ProvidersWrapper = ({ children }) => {
   return (
     <QueryClientProvider client={queryClient}>
-      <ClientProvider>
-        <ThemeProvider>
-          <ViewProvider views={VIEWS} defaultView={VIEWS.HOME}>
+      <ThemeProvider>
+        <ViewProvider views={VIEWS} defaultView={VIEWS.HOME}>
+          <ClientProvider>
             {children}
-          </ViewProvider>
-        </ThemeProvider>
-      </ClientProvider>
+          </ClientProvider>
+        </ViewProvider>
+      </ThemeProvider>
     </QueryClientProvider> 
   );
 };
