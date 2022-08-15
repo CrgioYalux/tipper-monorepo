@@ -5,8 +5,15 @@ CREATE TABLE Client(
   	fullname VARCHAR(40) NOT NULL,
 	email VARCHAR(50) NOT NULL,
 	hash VARCHAR(128) NOT NULL,
-  	salt VARCHAR(32) NOT NULL,
+ 	salt VARCHAR(32) NOT NULL,
 	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE ClientProfile(
+	fk_client_id INTEGER NOT NULL,
+	biography VARCHAR(240),
+	date_of_bith DATE NOT NULL,
+	FOREIGN KEY (fk_client_id) REFERENCES Client (pk_client_id)
 );
 
 CREATE TABLE Tip(
@@ -27,11 +34,11 @@ CREATE TABLE TipReaction(
 
 CREATE TABLE TipComment(
 	fk_from_client_id INTEGER NOT NULL,
-  fk_to_client_id INTEGER NOT NULL,
-  fk_from_tip_id INTEGER NOT NULL,
+	fk_to_client_id INTEGER NOT NULL,
+	fk_from_tip_id INTEGER NOT NULL,
 	fk_to_tip_id INTEGER NOT NULL,
-  FOREIGN KEY (fk_from_client_id) REFERENCES CLIENT (pk_client_id),
-  FOREIGN KEY (fk_to_client_id) REFERENCES CLIENT (pk_client_id),
-  FOREIGN KEY (fk_from_tip_id) REFERENCES TIP (pk_tip_id),
-  FOREIGN KEY (fk_to_tip_id) REFERENCES TIP (pk_tip_id)
+	FOREIGN KEY (fk_from_client_id) REFERENCES CLIENT (pk_client_id),
+	FOREIGN KEY (fk_to_client_id) REFERENCES CLIENT (pk_client_id),
+	FOREIGN KEY (fk_from_tip_id) REFERENCES TIP (pk_tip_id),
+	FOREIGN KEY (fk_to_tip_id) REFERENCES TIP (pk_tip_id)
 );
