@@ -14,13 +14,13 @@ export const Tip = ({
   likes,
   dislikes,
   comments,
-  tip_id,
-  is_comment,
-  vars_class_name = ''
+  tipID,
+  isComment,
+  className = ''
 }) => {
   const [interactionSelected, setInteractionSelected] = useState("");
   const { selectTip } = useClient();
-  const id = is_comment ? `tip_comment_${tip_id}` : tip_id;
+  const ID = isComment ? `tip_comment_${tipID}` : tipID;
 
   const handleClickOnTip = (e) => {
     if (Boolean(e.target.dataset.unclickable) !== true) {
@@ -32,19 +32,19 @@ export const Tip = ({
         likes,
         dislikes,
         comments,
-        tip_id,
-        is_comment
+        tipID,
+        isComment 
       });
     };
   };
 
   const handleCheck = (e) => {
-    const interactionLike = document.getElementById(`Interaction_like_${id}`);
-    const interactionDislike = document.getElementById(`Interaction_dislike_${id}`);
-    const interactionComment = document.getElementById(`Interaction_comment_${id}`);
+    const interactionLike = document.getElementById(`Interaction_like_${ID}`);
+    const interactionDislike = document.getElementById(`Interaction_dislike_${ID}`);
+    const interactionComment = document.getElementById(`Interaction_comment_${ID}`);
     
     e.target.parentNode.classList.add('Interaction--selected');
-    if (e.target.id !== `Interaction_comment_${id}`) {
+    if (e.target.id !== `Interaction_comment_${ID}`) {
       if (interactionLike.checked) {
         interactionDislike.parentNode.classList.remove('Interaction--selected');
       };
@@ -56,7 +56,7 @@ export const Tip = ({
 
   const handleSelection = (e) => {
     const interaction = e.target;
-    if (interaction.id !== `Interaction_comment_${id}`) {
+    if (interaction.id !== `Interaction_comment_${ID}`) {
       if (interactionSelected === interaction.id) {
           interaction.checked = false;
           interaction.parentNode.classList.remove(`Interaction--selected`);
@@ -70,7 +70,7 @@ export const Tip = ({
 
   return (
     <div
-      className={`Tip ${is_comment ? "_is_comment" : "_is_not_comment"} ${vars_class_name}`}
+      className={`Tip ${isComment ? "_is_comment" : "_is_not_comment"} ${className}`}
       onClick={handleClickOnTip}
     >
       <div className="Tip__Client_info">
@@ -84,12 +84,12 @@ export const Tip = ({
       </div>
       <form className="Tip__Interaction">
         <div className="Interaction_like">
-          <label htmlFor={`Interaction_like_${id}`} data-unclickable={true}>
+          <label htmlFor={`Interaction_like_${ID}`} data-unclickable={true}>
             <input
               type="radio"
               name="Interaction_selected"
-              value={`Interaction_like_${id}`}
-              id={`Interaction_like_${id}`}
+              value={`Interaction_like_${ID}`}
+              id={`Interaction_like_${ID}`}
               onClick={handleSelection}
               onChange={handleCheck}
               data-unclickable={true}
@@ -102,12 +102,12 @@ export const Tip = ({
           </label>
         </div>
         <div className="Interaction_dislike">
-          <label htmlFor={`Interaction_dislike_${id}`} data-unclickable={true}>
+          <label htmlFor={`Interaction_dislike_${ID}`} data-unclickable={true}>
             <input
               type="radio"
               name="Interaction_selected"
-              value={`Interaction_dislike_${id}`}
-              id={`Interaction_dislike_${id}`}
+              value={`Interaction_dislike_${ID}`}
+              id={`Interaction_dislike_${ID}`}
               onClick={handleSelection}
               onChange={handleCheck}
               data-unclickable={true}
@@ -120,12 +120,12 @@ export const Tip = ({
           </label>
         </div>
         <div className="Interaction_comment" >
-          <label htmlFor={`Interaction_comment_${id}`} data-unclickable={true}>
+          <label htmlFor={`Interaction_comment_${ID}`} data-unclickable={true}>
             <input 
               type="radio"
               name="Interaction_comment"
-              value={`Interaction_comment_${id}`}
-              id={`Interaction_comment_${id}`}
+              value={`Interaction_comment_${ID}`}
+              id={`Interaction_comment_${ID}`}
               onClick={handleSelection}
               onChange={handleCheck}
               data-unclickable={true}

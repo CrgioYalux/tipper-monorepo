@@ -7,7 +7,7 @@ export const mock_comments = [
     likes: 2,
     dislikes: 1,
     comments: 0,
-    tip_id: 12
+    tipID: 12
   },
   {
     nickname: 'angymoss',
@@ -17,7 +17,7 @@ export const mock_comments = [
     likes: 2,
     dislikes: 1,
     comments: 0,
-    tip_id: 13
+    tipID: 13
   },
   {
     nickname: 'angymoss',
@@ -27,6 +27,6 @@ export const mock_comments = [
     likes: 10,
     dislikes: 6,
     comments: 0,
-    tip_id: 14
+    tipID: 14
   } 
 ];

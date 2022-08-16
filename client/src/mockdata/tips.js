@@ -7,7 +7,7 @@ export const mock_tips = [
     likes: 10,
     dislikes: 1,
     comments: 3,
-    tip_id: 21
+    tipID: 21
   },
   {
     nickname: 'font_roboto',
@@ -17,7 +17,7 @@ export const mock_tips = [
     likes: '1K',
     dislikes: 10,
     comments: 0,
-    tip_id: 22
+    tipID: 22
   },
   {
     nickname: 'angymoss',
@@ -27,7 +27,7 @@ export const mock_tips = [
     likes: '1K',
     dislikes: 999,
     comments: 0,
-    tip_id: 23
+    tipID: 23
   }
 ];
 

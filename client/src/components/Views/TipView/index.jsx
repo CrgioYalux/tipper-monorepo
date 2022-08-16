@@ -12,7 +12,7 @@ export const TipView = ({
   likes,
   dislikes,
   comments,
-  tip_id
+  tipID 
 }) => {
   const [tipComments, setTipComments] = useState([...mock_comments]);
 
@@ -27,13 +27,13 @@ export const TipView = ({
           likes={likes}
           dislikes={dislikes}
           comments={comments}
-          tip_id={tip_id}
-          is_comment={false}
+          tipID={tipID}
+          isComment={false}
         />
         <TipList
           tips={tipComments}
-          for_comments={true}
-          vars_class_name="TipView_TipList__vars"
+          forComments={true}
+          className="TipView_TipList__vars"
         />
       </div>
     </div>

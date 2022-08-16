@@ -7,7 +7,7 @@ export const ProfileWidget = ({ className = '' }) => {
 
 	return (
 		<button
-      onClick={() => goToView(views.Profile)}
+      onClick={() => goToView(views.PROFILE)}
       className={`ProfileWidget ${className}`}
     >
       <ProfileIcon className='ProfileWidget_icon'/>

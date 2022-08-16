@@ -7,7 +7,7 @@ export const SettingWidget = ({ className = '' }) => {
 
 	return (
 		<button
-      onClick={() => goToView(views.Setting)}
+      onClick={() => goToView(views.SETTING)}
       className={`SettingWidget ${className}`}
     >
       <GearIcon className='SettingWidget_icon'/>

@@ -6,7 +6,7 @@ export const ExploreWidget = ({ className = '' }) => {
   const { views, goToView } = useView();
 	return (
 		<button
-      onClick={() => goToView(views.Explore)}
+      onClick={() => goToView(views.EXPLORE)}
       className={`ExploreWidget ${className}`}
     >
       <HashtagIcon className='ExploreWidget_icon' />   
