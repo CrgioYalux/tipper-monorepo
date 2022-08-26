@@ -1,6 +1,8 @@
 .TipList.--not-for-comments {
+  /*
   width: 95%;
   max-width: 650px;
+  */
   
   display: flex;
   flex-direction: column;

@@ -122,7 +122,6 @@ export const Tip = ({
         <div className="Interaction_comment" >
           <label htmlFor={`Interaction_comment_${ID}`} data-unclickable={true}>
             <input 
-              type="radio"
               name="Interaction_comment"
               value={`Interaction_comment_${ID}`}
               id={`Interaction_comment_${ID}`}

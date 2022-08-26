@@ -1,0 +1,63 @@
+.ProfileCard {
+  height: max-content;
+  width: 100%;
+
+  font-size: clamp(1em, 4vw, 2em);
+
+  padding: .3em 0;
+  padding: 0;
+
+  color: var(--secondary-color-opacity-full);
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ProfileCard section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-weight: 300;
+}
+
+.ProfileCard_header { gap: 5px; }
+
+.ProfileCard_fullname { font-weight: 500; }
+
+.ProfileCard_nickname { font-size: .75em; }
+
+.ProfileCard_body {
+  padding: .6em;
+  background-color: var(--brand-color-darker);
+  border-radius: var(--brand-border-radius);
+}
+
+.ProfileCard_biography {
+  line-height: 1.2;
+  font-weight: 400;
+  color: white;
+}
+
+.ProfileCard_footer { 
+  font-size: .75em;
+  font-weight: 300;
+  justify-content: space-between;
+  height: min-content;
+}
+
+.ProfileCard_dateOfBirth {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: baseline;
+
+  font-weight: 400;
+  gap: 5px;
+}
+
+.ProfileCard_dateOfBirth_icon {
+  width: 1.2ch;
+  aspect-ratio: 1;
+  fill: var(--brand-color-darker);
+}

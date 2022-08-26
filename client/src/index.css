@@ -77,6 +77,7 @@ table {
 
   --error-color: hsl(10, 60%, 50%);
   --success-color: hsl(140, 60%, 50%);
+  --brand-border-radius: 16px;
 
   /* COLOR SCHEME */
   color-scheme: light dark;

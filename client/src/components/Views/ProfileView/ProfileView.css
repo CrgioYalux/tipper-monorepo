@@ -1,0 +1,30 @@
+.ProfileView {
+  width: 100%;
+  height: 100%;
+
+  box-sizing: border-box;
+
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+
+  --ProfileView-spacing: 10px;
+
+  padding: var(--ProfileView-spacing); 
+  gap: var(--ProfileView-spacing);
+}
+
+.ProfileView_ProfileCard,
+.ProfileView_TipList {
+  flex: 1 1 auto;
+  max-width: 650px;
+  align-self: flex-start;
+}
+
+.ProfileView_ProfileCard {
+}
+
+.ProfileView_TipList {
+  height: 100%;
+}
