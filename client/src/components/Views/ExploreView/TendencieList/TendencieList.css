@@ -12,6 +12,7 @@
   border-radius: var(--brand-border-radius);
   
   color: var(--brand-color-lightest);
+  color: var(--secondary-color-opacity-high);
 }
 
 .TendencieList > label {
@@ -36,6 +37,7 @@
   justify-content: center;
   text-decoration: none;
   padding: .4em .6em;
+  background-color: hsl(0, 0%, 15%);
   background-color: var(--primary-color-opacity-high);
   border-radius: var(--brand-border-radius);
 }
@@ -45,16 +47,17 @@
 }
 
 .TendencieList > label > input:checked + div {
-  background-color: var(--brand-color-darkest);
+  background-color: var(--brand-color);
+  color: var(--primary-color-opacity-high);
 }
 
 .TendencieList > label > div > span {
-  font-weight: 400;
+  font-weight: 500;
   margin-bottom: 2.5px;
 }
 
 .TendencieList > label > div > small { 
   font-size: .75em;
-  font-weight: 300;
+  font-weight: 500;
   letter-spacing: 1px;
 }

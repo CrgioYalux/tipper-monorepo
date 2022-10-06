@@ -61,7 +61,7 @@ table {
   --secondary-font: 'Roboto', sans-serif;
  
   /* Colors */
-  --brand-color-hue: 260;
+  --brand-color-hue: 150;
 
   --brand-color-lightest: hsl(var(--brand-color-hue), 50%, 80%);
   --brand-color-lighter: hsl(var(--brand-color-hue), 50%, 70%);
