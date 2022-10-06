@@ -10,7 +10,7 @@ export const ProvidersWrapper = ({ children }) => {
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
-        <ViewProvider views={VIEWS} defaultView={VIEWS.PROFILE}>
+        <ViewProvider views={VIEWS} defaultView={VIEWS.EXPLORE}>
           <ClientProvider>
             {children}
           </ClientProvider>

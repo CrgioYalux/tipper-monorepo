@@ -3,13 +3,13 @@ import { useView } from '../../../providers/ViewProvider';
 import { HashtagIcon } from '../../Icons/HashtagIcon';
 
 export const ExploreWidget = ({ className = '' }) => {
-  const { views, goToView } = useView();
+    const { views, goToView } = useView();
 	return (
-		<button
-      onClick={() => goToView(views.EXPLORE)}
-      className={`ExploreWidget ${className}`}
-    >
-      <HashtagIcon className='ExploreWidget_icon' />   
+	    <button
+            onClick={() => goToView(views.EXPLORE)}
+            className={`ExploreWidget ${className}`}
+        >
+            <HashtagIcon className='ExploreWidget_icon' />   
 		</button>
 	);
 };

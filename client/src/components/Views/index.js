@@ -1,6 +1,6 @@
 export const VIEWS = {
   HOME: "HOME",
-  EXPLORE: "TRENDS",
+  EXPLORE: "EXPLORE",
   CREATE: "CREATE",
   PROFILE: "PROFILE",
   ACCESS: "ACCESS",

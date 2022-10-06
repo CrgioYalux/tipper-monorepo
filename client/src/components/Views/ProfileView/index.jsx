@@ -6,13 +6,13 @@ import { TipList } from '../../TipList';
 import { ProfileCard } from '../../ProfileCard';
 
 export const ProfileView = ({ profileID, nickname }) => {
-  const [profile, setProfile] = useState({...mock_profiles[0]});
-  const [tips, setTips] = useState([...mock_tips]);
+    const [profile, setProfile] = useState({...mock_profiles[0]});
+    const [tips, setTips] = useState([...mock_tips]);
 
 	return (
-		<div className='ProfileView'>
-      <ProfileCard profile={profile} className='ProfileView_ProfileCard' />
-      <TipList tips={tips} className='ProfileView_TipList' />
-		</div>
+        <div className='ProfileView'>
+            <ProfileCard profile={profile} className='ProfileView_ProfileCard' />
+            <TipList tips={tips} className='ProfileView_TipList' />
+        </div>
 	);
 };

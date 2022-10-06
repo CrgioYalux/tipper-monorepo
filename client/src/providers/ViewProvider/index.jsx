@@ -6,7 +6,7 @@ export const useView = () => useContext(ViewContext);
 
 export const ViewProvider = ({ children, views, defaultView }) => {
   const [currentView, setCurrentView] = useState(defaultView);
-  
+
   const goToView = (view) => {
     if ([...Object.values(views)].find((v) => v === view)) setCurrentView(view);
   };

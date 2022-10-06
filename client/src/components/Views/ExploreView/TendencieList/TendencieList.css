@@ -1,0 +1,60 @@
+.TendencieList {
+  width: max-content;
+
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 10px;
+
+  font-size: 1.2em;
+  padding: 5px 0;
+
+  background-color: var(--brand-color-dark);
+  border-radius: var(--brand-border-radius);
+  
+  color: var(--brand-color-lightest);
+}
+
+.TendencieList > label {
+  display: flex;
+  flex-direction: row nowrap;
+  align-items: center;
+  gap: 5px;
+  padding: 0 5px;
+  border-radius: var(--brand-border-radius);
+  cursor: pointer;
+}
+
+.TendencieList > label > span {
+  font-weight: 700;
+  color: var(--brand-color-darkest);
+}
+
+.TendencieList > label > div {
+  flex: 1 1 auto;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  text-decoration: none;
+  padding: .4em .6em;
+  background-color: var(--primary-color-opacity-high);
+  border-radius: var(--brand-border-radius);
+}
+
+.TendencieList > label > input {
+  display: none;
+}
+
+.TendencieList > label > input:checked + div {
+  background-color: var(--brand-color-darkest);
+}
+
+.TendencieList > label > div > span {
+  font-weight: 400;
+  margin-bottom: 2.5px;
+}
+
+.TendencieList > label > div > small { 
+  font-size: .75em;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
